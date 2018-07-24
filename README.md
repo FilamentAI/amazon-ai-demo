@@ -1,6 +1,6 @@
 ## About
 
-This project is available for people to use as a template when creating work that involves a UI component. It is designed to have all of the things you'd need already configured - authentication, responsive layout - and most importantly documentation so that you can concentrate on the things you need. 
+This project is a simple project to demonstrate the concepts of AI via a simple and easy to understand use case. 
 
 It should be simple to get it running, and once run please navigate to the URL provided and look at the documentation page.
 

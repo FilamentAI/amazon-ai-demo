@@ -1,0 +1,4 @@
+{ 
+    "registry": "http://bower.filament.uk.com",
+    "directory" : "public/bower_components"
+}
