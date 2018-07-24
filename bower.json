@@ -1,0 +1,34 @@
+{
+  "name": "tribe",
+  "version": "4.0.0",
+  "authors": [
+    "Andy Feltham (andy_feltham@uk.ibm.com)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "~0.2.15",
+    "angular": "1.5.8",
+    "angular-aria": "1.5.8",
+    "angular-animate": "~1.5.5",
+    "angular-websocket" : "*",
+    "moment": "*",
+    "ngstorage": "*",
+    "angularjs-nvd3-directives": "0.0.7",
+    "angular-ui-router-anim-in-out": "^1.0.2",
+    "animate.css": "*",
+    "filamentui": "0.1.0"
+  },
+  "resolutions": {
+    "d3": "~3.3.13",
+    "angular": "1.5.8",
+    "angular-ui-router": "~0.4.2",
+    "angular-aria": "1.6.10"
+  }
+}

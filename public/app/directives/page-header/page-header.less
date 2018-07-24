@@ -1,0 +1,52 @@
+@import (less) "../../style/colours.less";
+@import (less) "../../style/utilityClasses.less";
+.page-header {
+    .header {
+        display: inline-block;
+        max-width: calc(100% - 100px);
+    }
+    .buttons {
+        float: right;
+        margin-top: 35px;
+        i {
+            height: 35px;
+            width: 35px;
+            border: 2px solid @colour2;
+            border-radius: 25px;
+            color: @colour2;
+            margin-left: 12px;
+            cursor: pointer;
+            &:before {
+                position: relative;
+                top: 9px;
+            }
+            &:hover {
+                background: @colour2;
+            }
+        }
+    }
+    &.breadcrumbs {
+        margin: 40px 0 40px;
+        h3 {
+            margin: 0;
+            a {
+                color: @colour1;
+                &:hover {
+                    border-bottom: 2px solid @colour2;
+                }
+            }
+            i {
+                position: relative;
+                top: 1px;
+                margin: 0 5px 0 7px;
+            }
+        }
+        h1 {
+            margin-top: 5px;
+            padding: 0;
+        }
+        .buttons {
+            margin-top: 10px;
+        }
+    }
+}

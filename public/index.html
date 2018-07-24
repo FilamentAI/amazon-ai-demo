@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Filament :: Machine Learning Demo</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <base href="/">
+
+    <!-- 3rd Party JavaScript -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/ngstorage/ngStorage.min.js"></script>
+    <script src="bower_components/angular-websocket/dist/angular-websocket.js"></script>
+
+    <!-- 3rd party Javascript & CSS used by Filament UI -->
+    <script src="bower_components/moment/moment.js"></script>
+
+    <!-- the module code, built via gulp, gulp watch -->
+    <script src="bower_components/filamentui/dist/filamentui.templates.js"></script>
+    <script src="bower_components/filamentui/dist/filamentui.js"></script>
+    <link href="bower_components/filamentui/dist/filamentui.css" rel="stylesheet">
+    <link href="bower_components/filamentui/dist/vendor/filamentui.vendor.css" rel="stylesheet">
+    <!-- end module code -->
+
+    <!-- application JavaScript -->
+    <script src="app/app.js"></script>
+
+    <script src="app/filters.js"></script>
+    
+    <script src="app/services/httpErrors.service.js"></script>
+    <script src="app/services/toaster.service.js"></script>
+
+    <script src="app/pages/home/home.controller.js"></script>      
+
+    <script src="app/directives/header/header.directive.js"></script>
+    <script src="app/directives/page-header/page-header.directive.js"></script>
+
+    <!-- app CSS -->
+    <link rel="stylesheet" href="less/stylesheets/app/style/style.css">
+    <link rel="stylesheet" href="less/stylesheets/app/style/utilityClasses.css">
+
+    <link rel="stylesheet" href="less/stylesheets/app/directives/header/header.css">
+    <link rel="stylesheet" href="less/stylesheets/app/directives/page-header/page-header.css">
+
+    <link rel="stylesheet" href="less/stylesheets/app/pages/home/home.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Architects+Daughter|Gochi+Hand" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,400i,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,400italic" rel="stylesheet" type="text/css">
+</head>
+
+<body ng-app="tribe" ng-controller="MainCtrl" class="tribe" layout="column">
+    <div ng-cloak class="full-height">
+        <div class="page-container">
+            <div ui-view class="full-height" style="overflow: scroll;"></div>
+        </div>
+    </div>
+</body>
+
+</html>

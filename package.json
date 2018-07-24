@@ -1,0 +1,32 @@
+{
+    "name": "oliver",
+    "version": "0.1.0",
+    "description": "",
+    "scripts": {
+        "start": "node ./app.js",
+        "stop": ""
+    },
+    "dependencies": {
+        "body-parser": "^1.14.0",
+        "cookie-parser": "*",
+        "express": "4.12.x",
+        "express-session": "*",
+        "compression": "*",
+        "promise": "*",
+        "moment": "*",
+        "express-less": "*",
+        "passport": "*",
+        "passport-google-oauth2": "*",
+        "node-red": "*",
+        "json-server": "*",
+        "apicache": "*",
+        "moment-weekday-calc": "*"
+    },
+    "repository": {},
+    "engines": {
+        "node": "0.12.x"
+    },
+    "devDependencies": {
+        "bower": "^1.5.2"
+    }
+}

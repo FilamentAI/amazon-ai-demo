@@ -1,0 +1,110 @@
+/*
+ * These are the main colours that are then manipulated and used elsewhere.
+ */
+
+@black : rgb(30, 30, 30);
+@white : rgb(255, 255, 255);
+@colour1 : #e20d79;
+@colour2 : #464747;
+.background-colour1 {
+    background: @colour1;
+}
+
+.background-colour2 {
+    background: @colour2;
+}
+
+
+/* 
+ * The rest are standard dirivatives of the colours above 
+ */
+
+@font-colour: @black;
+@hover-colour: lighten(@colour2, 25%);
+@background-colour: @white;
+@header-colour: #333;
+@secondary-colour: @colour2;
+
+/* 
+ * Standard warning message colours
+ */
+
+@success: rgb(71, 128, 96);
+@warning : rgb(179, 125, 8);
+@info : rgb(11, 83, 185);
+@error : rgb(175, 35, 35);
+.background-success {
+    background: @success;
+}
+
+.background-warning {
+    background: @warning;
+}
+
+.background-info {
+    background: @info;
+}
+
+.background-error {
+    background: @error;
+}
+
+
+/* 
+ * Complimentary colours.
+ */
+
+@compliment-hue-1: @colour1;
+@compliment-hue-2: spin(@colour1, 180);
+@compliment-hue-3: darken(spin(@colour1, 180), 5%);
+@compliment-hue-4: lighten(@colour1, 15%);
+@compliment-hue-5: lighten(@colour1, 30%);
+.background-compliment-hue-1 {
+    background: @compliment-hue-1;
+}
+
+.background-compliment-hue-2 {
+    background: @compliment-hue-2;
+}
+
+.background-compliment-hue-3 {
+    background: @compliment-hue-3;
+}
+
+.background-compliment-hue-4 {
+    background: @compliment-hue-4;
+}
+
+.background-compliment-hue-5 {
+    background: @compliment-hue-5;
+}
+
+
+/*
+ * Subtle Colours
+ */
+
+@subtle-hue-1: @colour2;
+@subtle-hue-2: lighten(spin(@colour2, 5), 10%);
+@subtle-hue-3: lighten(spin(@colour2, 10), 20%);
+@subtle-hue-4: darken(spin(@colour2, -5), 10%);
+@subtle-hue-5: darken(spin(@colour2, -10), 20%);
+.background-subtle-hue-1 {
+    background: @subtle-hue-1;
+}
+
+.background-subtle-hue-2 {
+    background: @subtle-hue-2;
+}
+
+.background-subtle-hue-3 {
+    background: @subtle-hue-3;
+}
+
+.background-subtle-hue-4 {
+    background: @subtle-hue-4;
+}
+
+.background-subtle-hue-5 {
+    background: @subtle-hue-5;
+}

@@ -1,0 +1,18 @@
+<div class="page-header" ng-class="{'breadcrumbs': crumbs}">
+  <div class="header">
+    <h3 ng-if="crumbs">
+      <span ng-repeat="crumb in crumbs track by $index">
+        <i ng-if="$index !== 0" class="far fa-angle-right"></i>
+        <a ng-if="crumb.paramState" ui-sref="{{crumb.paramState}}">{{crumb.name}}</a>
+        <span ng-if="!crumb.paramState">{{crumb.name}}</span>
+      </span>
+    </h3>
+
+    <h1>{{title}}</h1>
+  </div>
+
+  <div class="buttons" ng-if="buttons">
+    <a ng-if="buttons.settings" ui-sref="{{buttons.settings}}"><i class="fas fa-fw fa-cog"></i></a>
+    <i ng-if="buttons.delete" class="fas fa-fw fa-trash" ng-click="deletePage()"></i>
+  </div>
+</div>
