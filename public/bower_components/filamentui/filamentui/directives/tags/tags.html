@@ -1,0 +1,16 @@
+<div class="filamentuiTags" tw-click-outside="_showLess()">
+
+    <div class="tag-row">
+        <span ng-repeat="tag in tags track by $index" title="{{tag.title}}" class="tag" ng-class="{'hoverable-tag': tag.title}" ng-style="tagColour(tag)" ng-if="showAll">{{ tag.name }}</span>
+        <span ng-repeat="tag in topTags track by $index" title="{{tag.title}}" class="tag" ng-class="{'hoverable-tag': tag.title}" ng-style="tagColour(tag)" ng-if="!showAll">{{ tag.name }}</span>
+    </div>
+
+    <div class="data-row" ng-if="moreTags.length > 0">
+        <span class="more" ng-click="_showMore()"> + {{ moreTags.length }} more</span>
+    </div>
+
+    <div class="extended-tags" ng-show="showTags">
+        <span ng-repeat="tag in moreTags track by $index" title="{{tag.title}}" class="tag" ng-class="{'hoverable-tag': tag.title}" ng-style="tagColour(tag)">{{ tag.name }}</span>
+    </div>
+
+</div>

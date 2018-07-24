@@ -1,0 +1,21 @@
+
+.filamentui_layout.sidebar {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    .sidebar-content {
+        width: $sidebar-width;
+        float: left;
+    }
+
+    .main-content {
+        width: calc(100% - 220px);
+        float: left;
+    }
+
+    .mainContent {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}

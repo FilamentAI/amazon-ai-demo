@@ -1,0 +1,134 @@
+/*
+ * These are the main colours that are then manipulated and used elsewhere.
+ * This file is copied across other projects that use this project for the purpose of designing custom elements in each parent project.
+ */
+
+
+// === Brand Colours
+
+$brand-primary: #B73A64; //#e20d79;
+$brand-primary-light: #f16693;
+$brand-primary-dark: #C50C6A;
+
+$brand-primary-alt: #AA0A5B;
+$brand-primary-alt2: #c66963;
+$brand-primary-disabled: #711F48;
+ 
+$brand-white: #FFFFFF;
+$brand-secondary: #31708F;
+
+$brand-secondary: #27AE60;
+$brand-third: #8E44AD;
+$brand-fourth: #4A90E2;
+$brand-fifth: #FFB100;
+$brand-selected: $brand-fifth;
+
+$brand-dark: #393939;
+$brand-darker: #232323;
+$brand-pink: #ec0b8a;
+$brand-orange: #f9aa45;
+
+// === TYPOGRAPHY
+
+$text-primary: #4E4E4E;
+$text-secondary: #9B9B9B;
+$text-invert: #FFFFFF;
+$text-light: #A0A0A0;
+
+$h1: #333333;
+$h1-underline: #e84096;
+
+// === STATUS
+
+$success: #27AE60;
+$info: #31708F;
+$danger: #DD514C;
+$error: #7F0D0D;
+$cancel: #737373;
+$warning: #E67E22;
+
+$invalid: $brand-primary;
+$emphasised: $info;
+
+// === NAV
+
+$public-header-background: transparent;
+$public-header-logo-background: transparent;
+$public-header-logo-color: #fff;
+
+$private-header-background: #393939;
+$private-header-background-lighter: #424242;
+$private-header-border: #8D8D8D;
+$private-header-logo-background: transparent;
+$private-header-logo-color: $brand-white;
+
+$nav-hover-colour: #E20D79;
+$private-nav-hover-colour: #F4F4F4;
+
+// global nav
+$globalnav-background-colour: #FFF;
+
+// Anchors and Menus
+$menu-background-colour: #FFF;
+$menu-highlight-colour: #f4f4f4;
+
+// Sidebar
+$sidebar-header: #fff;
+$sidebar-text: #8d8d8d;
+
+// === LAYOUT
+
+// Page and Layout
+$page-background: $brand-white;
+$page-background-alt: #F5F7F8;
+
+// === OBJECTS
+
+// Tables and Menus
+$table-line: #C9CDCF;
+$input-outline: #E9E9E9;
+$border: #EAE8E8;
+$border-dark: #9B9B9B;
+$row-border: #F1F1F1;
+
+$table-highlight: #7AA9C0; //15% opacity
+
+// Buttons
+$button-gradient-start: #CE567F;
+$button-gradient-end: #B42555;
+
+// Tags
+$tag-blue: #31708f;
+$tag-yellow: #f5a623;
+$tag-pink: #e20d79;
+$tag-green: #27ae60;
+$tag-purple: #b163b7;
+
+// Cards
+$cards-background-colour: $brand-white;
+
+$type-blue: #31708f;
+$type-yellow: #f5a623;
+$type-pink: #e20d79;
+$type-green: #27ae60;
+$type-purple: #b163b7;
+
+// Avatar
+$avatar-background: #F5F7F8;
+
+// Icons
+$icon-outline-colour: #b5b5b5;
+$icon-buttons: #7AA9C0;
+
+$twitter: #55ACEE;
+$dropbox: #007EE5;
+$google: #DD4B39;
+
+$green: #A9A9A9;
+$blue: #94C2ED;
+$orange: #E38968;
+$gray: #92959E;
+
+// Panels
+$panel-page-header-background: #E20D79;
+$panel-section-background: $brand-white;

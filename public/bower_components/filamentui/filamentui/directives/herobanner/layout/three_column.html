@@ -1,0 +1,25 @@
+<div class="filamentuiHeroBanner threeColumn">
+    <div class="row no-padding">
+        <div class="title">
+            <p class="emphasised primary">{{ title }}</p>
+            <filamentui-label ng-if="status" text="status" labelclass="'primary big'"></filamentui-label>
+        </div>
+    </div>
+    <div class="row no-padding">
+        <div class="pane">
+            <div class="innerPane">
+                <div class="transclude" ng-transclude="one"></div>
+            </div>
+        </div>
+        <div class="pane">
+            <div class="innerPane">
+                <div class="transclude" ng-transclude="two"></div>
+            </div>
+        </div>
+        <div class="pane">
+            <div class="innerPane">
+                <div class="transclude" ng-transclude="three"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,479 @@
+
+.filamentuiInput {
+    margin: 0 0 20px;
+
+    > div > div {
+        position: relative;
+    }
+    h4 {
+        margin: 0 0 10px;
+        // font-size: 18px;
+    }
+    h5 {
+        margin-top: -10px;
+        margin-bottom: 10px;
+    }
+    input, textarea, select {
+        font-family:Nunito;
+        font-style: italic;
+        font-size:16px;
+        color: $text-primary;
+        background: #ffffff;
+        border: 1px solid $input-outline;
+        @include border-radius(5px);
+        @include border-box;
+        padding: 8px 11px;
+        width: 100%;
+
+        &.invalid {
+            border: 1px solid $invalid;
+        }
+
+        &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            opacity: 0.5;
+        }
+        &::-moz-placeholder { /* Firefox 19+ */
+            opacity: 0.5;
+        }
+        &:-ms-input-placeholder { /* IE 10+ */
+            opacity: 0.5;
+        }
+        &:-moz-placeholder { /* Firefox 18- */
+            opacity: 0.5;
+        }
+    }
+
+    .selectDropDown {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    .selectDropDown select {
+        font-family: 'Arial';
+        display: inline-block;
+        width: 100%;
+        cursor: pointer;
+        padding: 10px 20px;
+        outline: 0;
+        background: #FFFFFF;
+        color: #7B7B7B;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+    .selectDropDown select::-ms-expand {
+        display: none;
+    }
+    .selectDropDown select:hover,
+    .selectDropDown select:focus {
+        color: #000000;
+        background: #FFFFFF;
+    }
+    .selectDropDown select:disabled {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    .select_arrow {
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border: solid #7B7B7B;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+    }
+    .selectDropDown select:hover ~ .select_arrow,
+    .selectDropDown select:focus ~ .select_arrow {
+        border-top-color: #000000;
+    }
+    .selectDropDown select:disabled ~ .select_arrow {
+        border-top-color: #CCCCCC;
+    }
+
+    .helpImage,
+    .searchImage,
+    .clearImage,
+    .invalidImage,
+    .validUpdateImage,
+    .requiredImage {
+        display: none;
+        cursor: pointer;
+    }
+
+    .errorMessage {
+        font-size: 0.8em;
+        color: $invalid;
+    }
+    .helpMessage {
+        font-size: 0.8em;
+        padding: 5px;
+    }
+    &.helper {
+        input, textarea {
+            border: 1px solid $brand-secondary;
+            width: calc(100% - 45px);
+        }
+        .helpImage {
+            display: inline-block;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .invalidImage {
+            display: none;
+        }
+
+        .validUpdateImage, .requiredImage, .invalidImage {
+            right: 52px !important;
+        }
+    }
+
+    &.select {
+        .validUpdateImage, .requiredImage, .invalidImage {
+            right: 52px !important;
+            top: 14px !important;
+        }
+    }
+    &.search {
+        h4 {
+            display: none;
+        }
+        input {
+            border: 0px;
+            width: calc(100% - 68px);
+        }
+        .searchImage,
+        .clearImage {
+            display: inline-block;
+            padding: 10px;
+            vertical-align: top;
+        }
+        .invalidImage {
+            display: none;
+        }
+
+        .validUpdateImage {
+            display: none !important;
+        }
+    }
+
+    &.invalid {
+        .invalidImage {
+            display: inline-block;
+            position: absolute;
+            right: 12px;
+            top: 12px;
+            color: $invalid;
+        }
+    }
+
+    .requiredImage {
+        display: inline-block;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        color: $invalid;
+    }
+
+    .validUpdateImage {
+        display: inline-block;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        color: $brand-secondary;
+    }
+
+    .calendarImage {
+        display: inline-block;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+        color: $brand-third;        
+    }
+
+    .readonly {
+        opacity: 0.4;
+    }
+
+    .disabled {
+        cursor: not-allowed;
+        opacity: 0.4;
+    }
+
+    // sizes
+    .shortest {
+        width: 20%;
+    }
+
+    .short {
+        width: 40%
+    }
+
+    .half-size {
+        width: 50%
+    }
+
+    .medium {
+        width: 60%
+    }
+
+    .long {
+        width: 80%;
+    }
+
+    .longest {
+        width: 100%;
+    }
+
+    // DATEPICKER
+    
+    datepicker,
+    [datepicker],
+    .datepicker {
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        select {
+            width: 75%;
+            overflow: hidden;
+            background: none;
+            color: $text-primary;
+            background-color: #fff;
+            border: 1px solid $input-outline;
+            height: 30px;
+            border-radius: 5px;
+        }
+
+        ._720kb-datepicker-calendar-header,
+        ._720kb-datepicker-calendar-body,
+        ._720kb-datepicker-calendar-days-header,
+        ._720kb-datepicker-calendar-years-pagination-pages {
+            font-family: Nunito;
+            font-size: 13.5px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 100%;
+            margin: 0 auto;
+            float: left;
+            clear: right;
+            position: relative;
+        }
+    }
+
+    ._720kb-datepicker-calendar {
+        background: white;
+        color: $text-primary;
+        position: absolute;
+        z-index: 999;
+        min-width: 220px;
+        margin: 10px auto 0 -0.5%;
+        width: 101%;
+
+        visibility: hidden;
+        overflow: hidden;
+
+        border: 1px solid $brand-primary;
+
+        &._720kb-datepicker-open {
+            visibility: visible;
+        }
+    }
+    
+    ._720kb-datepicker-calendar-header {
+        text-align: center;
+        font-size: 15px;
+        line-height: 40px;
+
+        a {
+            text-decoration: none;
+            padding: 3% 9% 4% 9%;
+            font-size: 13.5px;
+            color: rgba(0, 0, 0, 0.55);
+            font-weight: bold;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+
+            &:hover {
+                color: $brand-primary;
+                background: rgba(255, 255, 255, 0.45);
+            }
+        }
+    }
+
+    ._720kb-datepicker-calendar-header-left,
+    ._720kb-datepicker-calendar-header-middle,
+    ._720kb-datepicker-calendar-header-right {
+        width: 15%;
+        float: left;
+    }
+    ._720kb-datepicker-calendar-header-middle {
+        width: 70%;
+
+        &._720kb-datepicker-mobile-item {
+            width: 95%;
+            float: none;
+            margin: 0 auto;
+          }
+    }
+    ._720kb-datepicker-calendar-body {
+        width: 96%;
+        margin: 2%;
+        text-align: center;
+    }
+
+    ._720kb-datepicker-calendar-day {
+        cursor: pointer;
+        font-size: 12.5px;
+        width: 12.2%;
+        margin: 5px 1%;
+        padding: 1.5% 0;
+        float: left;
+
+        &:hover {
+            background: $brand-primary;
+            color: #fff;
+            font-weight: 500;
+        }
+
+        &._720kb-datepicker-active {
+            color: $brand-primary;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        &._720kb-datepicker-disabled {
+            color: $text-secondary;
+            cursor: default;
+
+            &:hover {
+                color: $text-secondary;
+                background: #fff;
+                cursor: default;
+            }
+        }
+    }
+    
+    ._720kb-datepicker-calendar-month {
+        color: $text-primary;
+        font-style: normal;
+        font-size: 15px;
+
+        span {
+            font-size: 13px;
+            margin-left: 1%;
+            color: rgba(0, 0, 0, 0.4);
+
+            &:hover {
+                color: $brand-primary;
+            }
+        }
+
+        a {
+            padding: 3px;
+            margin-left: 1%;
+
+            &:hover {
+                color: $brand-primary;
+            }
+
+            span {
+                i {
+                    font-style: normal;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+
+    ._720kb-datepicker-calendar-years-pagination {
+        padding: 2% 0 0 0;
+        float: left;
+        clear: right;
+        width: 100%;
+
+        a {
+            font-size: 12px;
+            padding: 0 7px;
+            font-weight: normal;
+            margin: 3px 1% 0 1%;
+            line-height: 20px;
+            display: inline-block;
+            border: 1px solid #fff;
+
+            &:hover {
+                color: $brand-primary;
+                font-weight: 500;
+                border: 1px solid $brand-primary;
+            }
+
+            &._720kb-datepicker-disabled {
+                color: rgba(0,0,0,0.2);
+                cursor: default;
+
+                &:hover {
+                    border: 1px solid #fff;
+                }
+            }
+
+            &._720kb-datepicker-active {
+                color: $brand-primary;
+                cursor: default;
+
+                &._720kb-datepicker-disabled {
+                    color: $text-secondary;
+                    cursor: default;
+                }
+            }
+        }
+    }
+
+    ._720kb-datepicker-calendar-years-pagination-pages  {
+        a {
+            padding: 5px 10px;
+        }
+    }
+    
+    ._720kb-datepicker-calendar-days-header{
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 2% 0 2%;
+        // background: rgba(19, 142, 250, 0.08);
+        border-bottom: 1px solid $input-outline;
+
+        div {
+            width: 13.2%;
+            font-weight: 600;
+            font-size: 11.5px;
+            padding: 10px 0.5%;
+            float: left;
+            text-align: center;
+            text-transform: uppercase;
+            color: $text-secondary;
+        }
+    }
+
+    ._720kb-datepicker-calendar-days,
+    ._720kb-datepicker-default-button {
+        font-size: 18.5px;
+        position: relative;
+        bottom: -0.5px;
+    }
+    
+    ._720kb-datepicker-item-hidden{
+        visibility:hidden;
+    } 
+}

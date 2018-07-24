@@ -1,0 +1,29 @@
+<div ng-if="1 < pages.length || !autoHide" class="control-bar">
+    <div class="control-left" style="grid-column-start: 1; grid-column-end: 2; text-align: left; font-size: 1.4em;">
+        <i class="fa fa-fw fa-chevron-left control-page"
+            ng-if="pagination.current != 1"
+            ng-click="setCurrent( pagination.current - 1 )"></i>
+        <i class="fa fa-fw fa-chevron-double-left control-page"
+            ng-if="( pagination.current - 10 ) >= 1"
+            ng-click="setCurrent( pagination.current - 10 )"></i>
+    </div>
+    <div style="grid-column-start: 2; grid-column-end: 3; text-align: center;">
+        <div class="pageNumber" ng-repeat-start="pageNumber in pages track by tracker(pageNumber, $index)" ng-class="{ active : pagination.current == pageNumber }" ng-click="setCurrent(pageNumber)" ng-if="$first || $last">
+            {{ pageNumber }}
+        </div>
+        <div class="pageNumber disabled" ng-if="( pageNumber == '...' )">
+            {{ pageNumber }}
+        </div>
+        <div class="pageNumber" ng-click="setCurrent(pageNumber)" ng-repeat-end ng-if="!$first && !$last && !( pageNumber == '...' )" ng-class="{ active : pagination.current == pageNumber }">
+            {{ pageNumber }}
+        </div>
+    </div>
+    <div class="control-right" style="grid-column-start: 3; grid-column-end: 4; text-align: right; font-size: 1.4em;">
+        <i class="fa fa-fw fa-chevron-double-right control-page"
+            ng-if="( pagination.current + 10 ) <= pagination.last"
+            ng-click="setCurrent( pagination.current + 10 )"></i>
+        <i class="fa fa-fw fa-chevron-right control-page"
+            ng-if="pagination.current != pagination.last"
+            ng-click="setCurrent( pagination.current + 1 )"></i>
+    </div>
+</div>

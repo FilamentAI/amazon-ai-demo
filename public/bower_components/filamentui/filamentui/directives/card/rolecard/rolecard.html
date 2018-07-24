@@ -1,0 +1,25 @@
+<div class="filamentuiRoleCard">
+    <div class="inner-wrapper">
+        <div class="info" ng-if="information" ng-click="_information(card)">
+            <div class="default">
+                <i class="fal fa-info-circle"></i>
+            </div>
+            <div class="hover">
+                <i class="fas fa-info-circle"></i>
+            </div>
+        </div>
+
+        <a ng-click="_click(card)">
+            <div class="card role-card" ng-class="_cardClasses()">
+                <div class="card-content">
+                    <div ng-if="card.svg" class="card-img" ng-include="_imgSrc()"></div>
+                    <img ng-if="card.img" ng-src="{{_imgSrc()}}">
+                    <h2>{{card.heading}}</h2>
+                    <p>{{card.cardText}}</p>
+                </div>
+            </div>
+        </a>
+
+        <div class="disabled" ng-show="card.disabled"></div>
+    </div>
+</div>

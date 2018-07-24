@@ -1,0 +1,344 @@
+
+.filamentuiButton {
+    min-height: 50px;
+    box-sizing: border-box;
+    font-family: $font-nunito;
+    font-weight: 400;
+    letter-spacing: 0.33px;
+    text-align: center;
+    background: $brand-primary;
+    border: 1px solid $brand-primary;
+    margin: 5px;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    min-width: 200px;
+    //@include transition(opacity .25s ease-in-out);
+    @include transition(0.1s ease-in-out);
+
+    // sizings for smaller form buttons
+    &.small {
+        min-height: 20px;
+        font-size: 12px;
+        min-width: 50px;
+
+        .clicker {
+            padding: 8px 15px 5px 15px;
+        }
+    }
+
+    &.fixed-width {
+        width: 250px;
+
+        .options {
+            width: 250px;
+        }
+    }
+
+    .clicker {
+        box-sizing: border-box;
+        padding: 13px 20px 10px 20px;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+
+        &.hasOptions {
+            width: calc(100% - 45px);
+            margin-right: 45px;
+        }
+
+        $opacityTransition: opacity 0.8s;
+
+        .loader {
+            opacity: 0;
+            position: absolute;
+            left: calc(50% - 30px);
+            top: 12px;
+            transition: $opacityTransition;
+            -webkit-transition: $opacityTransition;
+
+            &.processing {
+                opacity: 1;
+            }
+
+            .ui-loader {
+                margin: -20px 0;
+            }
+        }
+
+        .name {
+            opacity: 1;
+            transition: $opacityTransition;
+            -webkit-transition: $opacityTransition;
+
+            &.processing {
+                opacity: 0;
+            }
+        }
+    }
+
+    .clickerOptions {
+        position: absolute;
+        height: 100%;
+        top: 0px;
+        width: 45px;
+        right: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .optionsButton {
+            width: 45px;
+            height: calc(100% - 20px);
+            border-left: 1px solid white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    &:hover {
+        box-shadow: 3px 3px 3px #c0c0c0;
+
+        &.dark {
+            box-shadow: 3px 3px 3px #303030;
+        }
+    }
+
+    &:active {
+        box-shadow: none;
+        transform: translate(3px, 3px);
+        z-index: 100;
+    }
+
+    > div {
+        display:inline-block;
+    }
+
+    div.menuButton,
+    .menuOptionList {
+        border: 1px solid $brand-primary;
+        @include border-radius(0);
+    }
+
+    .options {
+        position: absolute;
+        left: 0px;
+        top: 55px;
+        z-index: 500;
+    }
+
+    .menuOptionList {
+        cursor: pointer;
+        text-align: left;
+        min-width: 200px;
+        font-family: 'Source Sans Pro';;
+        font-size: 14px;
+        font-weight: 400;
+        color: $text-primary;
+        letter-spacing: 0.29px;
+        opacity: 1;
+        @include animation(fadein, 0.25s, 0s, linear);
+        background: white;
+        margin-bottom: 10px;
+
+        .menuGroup {
+            border-top: 1px solid $input-outline;
+            padding: 0px;
+
+            .icon,
+            .title {
+                display: inline-block;
+                padding: 0px;
+                white-space: nowrap;
+                float: none;
+            }
+
+            .icon {
+                width: 20px;
+                .fa {
+                    margin-left: -5px;
+                    margin-right: 5px;
+                }
+            }
+
+            div.menu {
+                padding: 5px 20px;
+                min-height: 42px;
+
+                .title {
+                    line-height: 22px;
+                    white-space: unset;
+                    padding: 6px 0;
+                }
+
+                &:hover {
+                    background: $brand-primary;
+                    color: $brand-white;
+                }
+
+                &.disabled {
+                    opacity: 0.3;
+                }
+            }
+        }
+
+        .menuGroup:first-child {
+            border-top: none;
+        }
+    }
+
+    &.primary {
+        color: #ffffff;
+        font-weight: 200;
+        background-image: linear-gradient(116deg, $button-gradient-start 0%, $button-gradient-end 100%);
+    }
+
+    &.secondary {
+        background: #ffffff;
+        border: 1px solid $brand-primary;
+        color: $brand-primary;
+
+        .optionsButton {
+            border-left: 1px solid $brand-primary;
+        }
+
+        &.solid {
+            background: $brand-primary;
+            color: white;
+        }
+    }
+
+    &.success {
+        background: #ffffff;
+        border: 1px solid $success;
+        color: $success;
+
+        .optionsButton {
+            border-left: 1px solid $success;
+        }
+
+        &.solid {
+            background: $success;
+            color: white;
+        }
+    }
+
+    &.back {
+        background: #ffffff;
+        border: 1px solid $text-primary;
+        color: $text-primary;
+
+        .optionsButton {
+            border-left: 1px solid $text-primary;
+        }
+
+        &.solid {
+            background: $text-primary;
+            color: white;
+        }
+    }
+
+    &.info {
+        background: #ffffff;
+        border: 1px solid $brand-secondary;
+        color: $brand-secondary;
+
+        .optionsButton {
+            border-left: 1px solid $brand-secondary;
+        }
+
+        &.solid {
+            background: $brand-secondary;
+            color: white;
+        }
+    }
+
+    &.delete {
+        background: #ffffff;
+        border: 1px solid $danger;
+        color: $danger;
+
+        .optionsButton {
+            border-left: 1px solid $danger;
+        }
+    }
+
+    &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        &:active {
+            box-shadow: none;
+            transform: translate(0, 0);
+        }
+    }
+
+    &.plus::before {
+        content: '\f300';
+        font-family: 'Font Awesome 5 Pro';
+        font-weight: 900;
+        font-size: 60px;
+        color: $brand-primary;
+        background: -webkit-linear-gradient(116deg, $button-gradient-start, $button-gradient-end);
+        background: -moz-linear-gradient(116deg, $button-gradient-start, $button-gradient-end);
+        background: -ms-linear-gradient(116deg, $button-gradient-start, $button-gradient-end);
+        background: -o-linear-gradient(116deg, $button-gradient-start, $button-gradient-end);
+        background: linear-gradient(116deg, $button-gradient-start, $button-gradient-end);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        position: absolute;
+        left: 0;
+    }
+
+    &.plus {
+        background: none;
+        width: 60px;
+        height: 60px;
+        padding: 0px;
+        border: 0px;
+        min-width: 75px;
+
+        &:hover {
+            box-shadow: none;
+        }
+
+        .options-up {
+            position: absolute;
+            left: 0px;
+            bottom: 100%;
+            z-index: 500;
+        }
+
+        &.right {
+            .options-up {
+                left: auto;
+                right: 0px;
+            }
+        }
+
+        .clickerOptions {
+            width: 100%;
+        }
+    }
+
+    &.bottom-right {
+        position: fixed;
+        bottom: 60px;
+        right: 60px;
+        z-index: 10;
+    }
+
+    &.bottom-left {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+    }
+}

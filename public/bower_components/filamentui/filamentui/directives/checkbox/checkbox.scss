@@ -1,0 +1,34 @@
+
+.filamentuiCheckbox {
+    cursor: pointer;
+
+    div.box {
+        background: #ffffff;
+        border: 1px solid $input-outline;
+        @include border-radius(5px);
+        width: 18px;
+        height: 18px;
+        display: inline-block;
+        position: relative;
+    }
+
+    .fa-check {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%, -50%));
+        opacity: 0;
+        @include transition(opacity .25s ease-in-out);
+
+        &.checked {
+            opacity: 1;
+            color : $brand-secondary;
+        }
+    }
+
+    div.label {
+        display: inline-block;
+        margin: 1px 0 0 10px;
+        vertical-align: top;
+    }
+}

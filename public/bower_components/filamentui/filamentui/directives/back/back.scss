@@ -1,0 +1,22 @@
+
+.filamentuiBack {
+    cursor: pointer;
+    margin-bottom: 20px;
+    img {
+        width: 9px;
+        height: 14px;
+        vertical-align: middle;
+    }
+    .backImage {
+        color: $brand-primary;
+        font-size: 1.4em;
+        vertical-align: middle;
+    }
+    div {
+        font-family: Nunito;
+        font-size: 16px;
+        color: #3a3a3a;
+        margin-left: 15px;
+        display: inline-block;
+    }
+}

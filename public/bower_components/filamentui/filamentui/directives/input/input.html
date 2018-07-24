@@ -1,0 +1,104 @@
+<div class="filamentuiInput" ng-class="{'invalid' : !_valid() }">
+    <div>
+        <h4>
+            {{ label }}
+        </h4>
+        <h5 ng-if="infoMessage != null">
+            {{ infoMessage }}
+        </h5>
+        <div class="{{ size }} {{ readonlyClass }} {{ disabledClass }}">
+            <i class="fa fa-search searchImage"></i>
+
+            <!-- simple inputs -->
+            <input
+                ng-show="!rows && !options && !date"
+                type="{{ inputType }}"
+                name="{{ name }}"
+                placeholder="{{ placeholder }}"
+                ng-model="input.value"
+                ng-readonly="true"
+                ng-change="onInputChange()"
+                ng-class="{'invalid' : !_valid() }"
+                ng-if="readonlyState && !disabledState">
+            <input
+                ng-show="!rows && !options && !date"
+                type="{{ inputType }}"
+                name="{{ name }}"
+                placeholder="{{ placeholder }}"
+                ng-model="input.value"
+                ng-disabled="true"
+                ng-change="onInputChange()"
+                ng-class="{'invalid' : !_valid() }"
+                ng-if="!readonlyState && disabledState">
+            <input
+                ng-show="!rows && !options && !date"
+                type="{{ inputType }}"
+                name="{{ name }}"
+                placeholder="{{ placeholder }}"
+                ng-model="input.value"
+                ng-change="onInputChange()"
+                ng-class="{'invalid' : !_valid() }"
+                ng-if="!readonlyState && !disabledState">
+            <!-- end simple inputs -->
+
+            <!-- row inputs -->
+            <textarea 
+                ng-show="rows && !options && !date" 
+                rows="{{ rows }}" 
+                name="{{ name }}" 
+                placeholder="{{ placeholder }}" 
+                ng-model="input.value" 
+                ng-readonly="readonly" 
+                ng-change="onInputChange()" 
+                ng-class="{'invalid' : !_valid() }">
+            </textarea>
+            <!-- end row inputs-->
+
+            <!-- select inputs -->
+            <div class="selectDropDown" ng-show="options">
+                <select
+                    name="{{ name }}"
+                    ng-model="input.value"
+                    ng-change="onInputChange()"
+                    ng-class="{'invalid' : !_valid() }">
+                    <option ng-repeat="option in options" value="{{ option.value }}" ng-disabled="option.disabled">
+                        <span>{{ option.title }}</span>
+                    </option>
+                </select>
+                <div class="select_arrow">
+                </div>
+            </div>
+            <!-- end select inputs -->
+
+            <!-- datepicker inputs -->
+            <datepicker 
+                date-format="{{date.format}}"
+                date-set="{{date.set}}"
+                date-max-limit={{date.max}}
+                ng-show="date">
+                <input 
+                    ng-model="input.value"
+                    ng-change="onInputChange()"
+                    type="text"
+                    name="{{ name }}"
+                    placeholder="{{ placeholder }}" />
+            </datepicker>
+            <!-- end datepicker inputs -->
+
+            <!-- help icons -->
+            <filamentui-help help="_showHelpMessage = !_showHelpMessage"></filamentui-help>
+            <i class="fa fa-times clearImage" ng-if="!date && input.value != null && input.value != ''" ng-click="clearInput()"></i>
+            <i class="fa fa-exclamation-triangle invalidImage" ng-if="!date && !_valid()"></i>
+            <i class="fa fa-check-circle validUpdateImage" ng-if="!date && _valid() && _hasChanged()"></i>
+            <i class="fa fa-asterisk requiredImage" ng-if="!date && required && !_hasChanged() && _valid()"></i>
+            <i class="fa fa-calendar calendarImage" ng-if="date"></i>
+            <!-- end help icons -->
+        </div>
+        <div ng-if="_showHelpMessage" class="helpMessage" ng-class="{ 'readonly' : readonly }">
+            {{ helpMessage }}
+        </div>
+        <div ng-if="!_valid()" class="errorMessage" ng-class="{ 'readonly' : readonly }">
+            {{ errorMessage }}
+        </div>
+    </div>
+</div>

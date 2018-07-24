@@ -1,0 +1,35 @@
+<div class="filamentuiButton {{ position }} {{ disabledClass }} {{ size }}" tw-click-outside="_closeOptions()">
+    <div class="clicker" ng-class="{ 'hasOptions' : options }" ng-click="_click()" ng-if="( ( !_isPlus && options ) || ( _isPlus && !options ) )">
+        <div ng-if="options && !_isPlus">
+            <i class="fa {{menuIcon}}" ng-if="menuIcon != null" style="margin-right: 5px;"></i>
+            <span class="name" ng-class="{'processing': processing}">{{ selectedOption }}</span>
+            <filamentui-loader class="loader" ng-class="{'processing': processing}" type="'wave-borderless'" colour="loadingIconColour"></filamentui-loader>
+            <ng-transclude ng-if="!selectedOption" class="name" ng-class="{'processing': processing}"></ng-transclude>
+        </div>
+    </div>
+    <div class="clickerOptions" ng-if="options" ng-click="_toggleOptions()" >
+        <div class="optionsButton" ng-if="options != null && !_isPlus">
+            <i class="fa fa-angle-down"></i>
+        </div>
+    </div>
+
+    <div class="clicker" ng-click="_click()" ng-if="!options && !_isPlus">
+        <filamentui-loader class="loader" ng-class="{'processing': processing}" type="'wave-borderless'" colour="loadingIconColour"></filamentui-loader>
+        <ng-transclude class="name" ng-class="{'processing': processing}"></ng-transclude>
+    </div>
+
+    <div class="{{ _isPlus ? 'options-up' : 'options' }}" ng-show="displayOptions">
+        <div class="menuOptionList">
+            <div ng-repeat="menuGroup in options" class="menuGroup">
+                <div ng-repeat="menu in menuGroup" class="menu {{ menu.class }}" ng-click="_clickMenu( menu )" ng-class="{'disabled' : menu.disabled != null && menu.disabled() }" ng-if="menu.if == null || menu.if()">
+                    <div class="icon" ng-if="menu.icon">
+                        <i class="fa {{menu.icon}}" ng-if="menu.icon != null"></i>
+                    </div>
+                    <div class="title">
+                        {{ menu.title }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

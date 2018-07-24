@@ -1,0 +1,48 @@
+<div class="filamentuiActivity">
+    <div class="itemList">
+        <div class="activity headerRow" ng-if="activities.items.length > 0">
+            <div class="container">
+                <div class="activityType">
+                    &nbsp;
+                </div>
+                <div class="activityDescription">
+                    <!-- <filamentui-filter filter-items="activities" key="'description'" event="updateEvent" order-keys="orderDescriptionKeys">Recent Activity</filamentui-filter> -->
+                    <h5 class="activityheading">Recent Activity</h5>
+                </div>
+                <div class="activityTime">
+                    <!-- <filamentui-filter filter-items="activities" key="'timestamp'" event="updateEvent" order-keys="orderTimestampKeys">Modified</filamentui-filter> -->
+                    <h5 class="activityheading">Modified</h5>
+                </div>
+            </div>
+        </div>
+        <div ng-repeat="activity in activities.items" class="activity " ng-class="{ 'hidden' : $index > 4 && !showAll }">
+            <div class="container">
+                <div class="activityType">
+                    <div class="line"></div>
+                    <div class="dot" ng-class="activity.type"></div>
+                </div>
+                <div class="activityDescription">
+  	                 {{ activity.description }}
+                </div>
+                <div class="activityTime">
+                    {{ _fromNow(activity.timestamp) }}
+                </div>
+            </div>
+        </div>
+        <div class="activity" ng-if="activities.items.length > 4">
+            <div class="container">
+                <div class="activityType">
+                    <div class="line"></div>
+                </div>
+                <div class="activityDescription toggle" ng-click="_toggleViewMore()">
+  	                Show <span ng-if="!showAll"> More</span><span ng-if="showAll"> Less</span>
+                </div>
+                <div class="activityTime">
+                    <div ng-if="activities.action">
+                        <div class="clicker" ng-click="_click()">{{activities.action.title}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

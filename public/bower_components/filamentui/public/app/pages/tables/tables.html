@@ -1,0 +1,463 @@
+<div>
+    <!-- Basic Table -->
+    <div class="whitepanel" id="basicTable">
+        <h1>Basic Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="basicTable.rows"
+                cols="basicTable.cols">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Basic tables only require row and column data.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="basicTable.rows"
+    cols="basicTable.cols"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>JS:</p>
+            <pre pretty-json="basicTable"></pre>
+        </div>
+    </div>
+
+    <!-- Basic Table w/ Tags -->
+    <div class="whitepanel" id="tagTable">
+        <h1>Basic Table with Tags</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="tagTable.rows"
+                cols="tagTable.cols">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Basic tables only require row and column data. Tags are generated elements that can be given a limit of how many tags to display directly in the table.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="tagTable.rows"
+    cols="tagTable.cols"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Table Column:</p>
+            <pre>
+{
+    'id': 3,
+    'firstName': 'Ash',
+    'surname': 'Ketchum',
+    'tag': {
+        'type': 'filamentui-tags',
+        'data': {
+            'tags': [...],
+            'top': 3
+        }
+    }
+}
+            </pre>
+            <p>JS:</p>
+            <pre pretty-json="tagTable"></pre>
+        </div>
+    </div>
+
+    <!-- Sorted Table -->
+    <div class="whitepanel" id="sortedTable">
+        <h1>Sorted Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="sortedTable.rows"
+                cols="sortedTable.cols"
+                options="sortedTable.options">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Sorted tables require a <code>sorts</code> option in column data. You can optionally pass a <code>sortFunction</code> to sort more complex objects or reverse sorting.</p>
+            <p>You can pass a <code>defaultSort</code> option to set default sorting.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="sortedTable.rows"
+    cols="sortedTable.cols"
+    options="sortedTable.options"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Table columns:</p>
+            <pre>
+[
+    {
+        'title': 'First Name',
+        'width': '200px',
+        'key': 'firstName',
+        'sorts': ['A - Z', 'Z - A']
+    }, {
+        'title': 'Surname',
+        'width': '200px',
+        'key': 'surname',
+        'sorts': ['A - Z', 'Z - A']
+    }, {
+        'title': 'Count',
+        'width': 'auto',
+        'key': 'count',
+        'sorts': ['Decreasing', 'Increasing'],
+        'sortFunction': function (item) {
+            return -item.count;
+        }
+    }
+]
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="sortedTable.options"></pre>
+        </div>
+    </div>
+
+    <!-- Filtered Table -->
+    <div class="whitepanel" id="filteredTable">
+        <h1>Filtered Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="filteredTable.rows"
+                cols="filteredTable.cols">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Filters can be added to columns. Each filter uses the column's <code>key</code> for filtering and requires a <code>value</code> to match on.</p>
+            <p>Filter <code>title</code> is optional, if it's not set it will be set to the filter <code>value</code>.</p>
+            <p>Filter options include <code>strict</code> for strict equality and <code>complexMatch</code> for matching on any key and doing nested matches.</p>
+            <p>Can't filter using a filter function yet.</p>
+            <p>Table columns:</p>
+            <pre pretty-json="filteredTableJson.cols"></pre>
+        </div>
+        </div>
+    </div>
+
+    <!-- Generated Items Table -->
+    <div class="whitepanel" id="generatedItemsTable">
+        <h1>Generated Items Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="generatedItemsTable.rows"
+                cols="generatedItemsTable.cols"
+                options="generatedItemsTable.options">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Generated items can be used as row items to add directives inside the table.</p>
+            <p>You should be able to use <code>complexMatch</code> filter to sort on these objects, but for some reason it's not working in this demo.</p>
+            <p>Table row example:</p>
+            <pre pretty-json="generatedItemsTable.rows[0]"></pre>
+            <p>Options:</p>
+            <pre pretty-json="generatedItemsTable.options"></pre>
+        </div>
+    </div>
+
+    <!-- Selectable Table -->
+    <div class="whitepanel" id="selectableTable">
+        <h1>Selectable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="selectableTable.rows"
+                cols="selectableTable.cols"
+                options="selectableTable.options"
+                ng-model="selectableTable.selected"
+                required="true"
+                error-message="'Im an error'"
+                pager-id="'selection'">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Use <code>selectable</code> option to make table selectable. Selection assumes that your data has id values, else it will not work.</p>
+            <p>Rows that are selected are set to the <code>ng-model</code> variable</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="selectableTable.rows"
+    cols="selectableTable.cols"
+    options="selectableTable.options"
+    ng-model="selectableTable.selected"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="selectableTable.options"></pre>
+            <p>Selected items:</p>
+            <pre pretty-json="selectableTable.selected"></pre>
+        </div>
+    </div>
+
+    <!-- Multiple Selectable Table -->
+    <div class="whitepanel" id="multipleTable">
+        <h1>Multiple Selectable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="multipleTable.rows"
+                cols="multipleTable.cols"
+                options="multipleTable.options"
+                ng-model="multipleTable.selected"
+                pager-id="'two'">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Use <code>multiple</code> option to be able to select multiple rows. Selection assumes that your data has id values, else it will not work.</p>
+            <p>Rows that are selected are set to the <code>ng-model</code> variable</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="multipleTable.rows"
+    cols="multipleTable.cols"
+    options="multipleTable.options"
+    ng-model="multipleTable.selected"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="multipleTable.options"></pre>
+            <p>Selected items:</p>
+            <pre pretty-json="multipleTable.selected"></pre>
+        </div>
+    </div>
+
+    <!-- Preselected Multiple Selectable Table -->
+    <div class="whitepanel" id="multipleTable">
+        <h1>Preselected Multiple Selectable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="preselectedTable.rows"
+                cols="preselectedTable.cols"
+                options="preselectedTable.options"
+                ng-model="preselectedTable.selected"
+                pager-id="'three'">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Use <code>row._meta.checked</code> to define if a row is selected. Selection assumes that your data has id values, else it will not work.</p>
+            <p>These rows will automatically populate the <code>ng-model</code>.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="preselectedTable.rows"
+    cols="preselectedTable.cols"
+    options="preselectedTable.options"
+    ng-model="preselectedTable.selected"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="preselectedTable.options"></pre>
+            <p>Selected items:</p>
+            <pre pretty-json="preselectedTable.selected"></pre>
+        </div>
+    </div>
+
+    <!-- Basic Expandable Table -->
+    <div class="whitepanel" id="basicExpandableTable">
+        <h1>Basic Expandable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="basicExpandableTable.rows"
+                cols="basicExpandableTable.cols"
+                options="basicExpandableTable.options">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Use <code>expandable</code> option to be able to expand row on click.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="basicExpandableTable.rows"
+    cols="basicExpandableTable.cols"
+    options="basicExpandableTable.options"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="basicExpandableTable.options"></pre>
+            <p>Set the <code>expandedContent</code> property on each row with the data you want to be in the expanded section.</p>
+            <pre>
+row.expandedContent = 'hello world';
+            </pre>
+        </div>
+    </div>
+
+    <!-- Generated Content Expandable Table -->
+    <div class="whitepanel" id="expandableTable">
+        <h1>Generated Content Expandable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="expandableTable.rows"
+                cols="expandableTable.cols"
+                options="expandableTable.options">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Use <code>expandable</code> option to be able to expand row on click.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="expandableTable.rows"
+    cols="expandableTable.cols"
+    options="expandableTable.options"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="expandableTable.options"></pre>
+            <p>Set the <code>expandedContent</code> property on each row with the data you want to be in the expanded section.</p>
+            <pre>
+row.expandedContent = {
+    'type': 'filamentui-json',
+    'data': {
+        'json': { 'hello': 'world' }
+    }
+};
+            </pre>
+        </div>
+    </div>
+
+    <!-- Subtable Table -->
+    <div class="whitepanel" id="subtableTable">
+        <h1>Subtable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="subtableTable.rows"
+                cols="subtableTable.cols"
+                options="subtableTable.options"
+                pager-id="'subtable_demo'">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>You can nest tables within other tables.</p>
+            <p>Set <code>row.expanded</code> to true if you want it to be expanded by default.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="subtableTable.rows"
+    cols="subtableTable.cols"
+    options="subtableTable.options"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="subtableTable.options"></pre>
+            <p>Set the <code>expandedContent</code> property on each row with the data you want to be in the expanded section.</p>
+            <pre>
+row.expandedContent = {
+    'type': 'filamentui-table',
+    'data': {
+        'rows': angular.copy(basicRawData),
+        'cols': angular.copy(basicRawCols),
+        'options': {
+            'hideHeaders': true,
+            'hidePager': true
+        }
+    }
+};
+            </pre>
+        </div>
+    </div>
+
+    <!-- Selectable Subtable Table -->
+    <div class="whitepanel" id="selectableSubtableTable">
+        <h1>Selectable Subtable Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="selectableSubtableTable.rows"
+                cols="selectableSubtableTable.cols"
+                options="selectableSubtableTable.options"
+                ng-model="selectableSubtableTable.selected">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Options:</p>
+            <pre pretty-json="selectableSubtableTable.options"></pre>
+            <p>Selected items:</p>
+            <pre pretty-json="selectableSubtableTable.selected"></pre>
+            <p>Subtable selected items:</p>
+            <pre pretty-json="selectableSubtableTable.rows[0].expandedContent.data.selected"></pre>
+        </div>
+    </div>
+
+    <!-- No Headers Table -->
+    <div class="whitepanel" id="noHeadersTable">
+        <h1>No Headers Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="noHeadersTable.rows"
+                cols="noHeadersTable.cols"
+                options="noHeadersTable.options">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Use <code>hideHeaders</code> option to hide headers on the table.</p>
+            <p>HTML:</p>
+            <pre>
+&lt;filamentui-table
+    rows="noHeadersTable.rows"
+    cols="noHeadersTable.cols"
+    options="noHeadersTable.options"&gt;
+&lt;/filamentui-table&gt;
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="noHeadersTable.options"></pre>
+        </div>
+    </div>
+
+    <!-- Actions Table -->
+    <div class="whitepanel" id="actionsTable">
+        <h1>Actions Table</h1>
+        <div class="demo">
+            <filamentui-table
+                rows="actionsTable.rows"
+                cols="actionsTable.cols"
+                options="actionsTable.options"
+                actions="actionsTable.actions">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>If you provide an <code>actions</code> property then a column at the end will be added. This will place a menu in the final column for each row that adds context specific actions defined in that actions variable.</p>
+            <p>If you also provide a <code>clickActionIndex</code> option, each row in the table becomes clickable, assuming that action can be performed based on the provided actions <code>if</code> block. The indexing will only search on the first action group of the table.</p>
+            <p>Actions:</p>
+            <pre pretty-json="actionsTable.actions"></pre>
+            <p>Example Action:</p>
+            <pre>
+{
+    'title': 'First action',
+    'icon': 'fa-edit',
+    'action': function (item) {
+        alert('You clicked on the first action.');
+    },
+    'if': function (item) {
+        return true;
+    }
+}
+            </pre>
+            <p>Options:</p>
+            <pre pretty-json="actionsTable.options"></pre>
+        </div>
+    </div>
+
+    <!-- Asynchronous Table -->
+    <div class="whitepanel" id="asynchronousTable">
+        <h1>Asynchronous Table</h1>
+        <filamentui-button class="secondary" style="display: block;" ng-click="getRows()">Get Rows</filamentui-button>
+
+        <div class="demo">
+            <filamentui-table
+                rows="asynchronousTable.rows"
+                cols="asynchronousTable.cols">
+            </filamentui-table>
+        </div>
+        <div class="example">
+            <p>Rows accepts an asynchronous function that can be called at any time.</p>
+            <pre>
+function asyncGetRows() {
+    return $q(function(resolve, reject) {
+        setTimeout(function() {
+            resolve({
+                items: angular.copy(basicRawData)
+            });
+        }, 1000);
+    });
+}
+
+$scope.asynchronousTable = {
+    'rows': asyncGetRows
+};
+            </pre>
+        </div>
+    </div>
+
+</div>

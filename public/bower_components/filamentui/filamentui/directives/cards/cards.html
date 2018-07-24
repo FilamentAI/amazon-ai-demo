@@ -1,0 +1,17 @@
+<div class="filamentuiCardContainer">
+    <div class="cards-container">
+        <filamentui-card model="addCard" ng-click="_addClick()" ng-if="showAdd"></filamentui-card>
+
+        <filamentui-card
+            dir-paginate="card in (_cards | filter : filter) | itemsPerPage : pagination.perPage"
+            current-page="pagination.currentPage"
+            total-items="pagination._totalItems"
+            model="card"
+            show-rating="false"
+            pagination-id="pagerId + '_pgid'"
+            ng-click="_cardClick( card )">
+        </filamentui-card>
+    </div>
+
+    <filamentui-pager options="pagerOptions" total="pagination._totalItems"></filamentui-pager>
+</div>

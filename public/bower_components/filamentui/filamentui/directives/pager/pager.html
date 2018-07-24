@@ -1,0 +1,12 @@
+<div class="filamentui-pager">
+    <dir-pagination-controls
+        direction-links="options.directionLinks"
+        boundary-links="options.boundaryLinks"
+        on-page-change="options.onPageChange(newPageNumber, oldPageNumber)"
+        pagination-id="options.pagerId"
+        template-url="filamentui/directives/pager/controls.html"
+        auto-hide="options.autoHide">
+    </dir-pagination-controls>
+
+    <filamentui-menu options="perPageMenu" text="perPageTitle" ng-show="total > options.perPage"></filamentui-menu>
+</div>

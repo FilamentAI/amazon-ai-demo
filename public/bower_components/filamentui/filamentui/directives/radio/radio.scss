@@ -1,0 +1,48 @@
+
+.filamentuiRadio {
+
+    margin-left: 10px;
+    cursor: pointer;
+
+    div.box {
+        background:#ffffff;
+        border:1px solid $input-outline;
+        @include border-radius(50%);
+        width: 22px;
+        height: 22px;
+        position: relative;
+        display: inline-block;
+    }
+
+    .fa {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translate(-50%, -50%));
+        opacity: 0;
+        @include transition(opacity .25s ease-in-out);
+
+        &.checked {
+            opacity: 1;
+            color : $brand-secondary;
+        }
+    }
+
+    div.label {
+        display: inline-block;
+        margin-top: 3px;
+        vertical-align: top;
+
+        ng-transclude {
+            display: inline-block;
+            padding-left: 5px;
+
+            .fa {
+                position: relative;
+                left: 5px;
+                top: 7px;
+                opacity: 1;
+            }
+        }
+    }
+}

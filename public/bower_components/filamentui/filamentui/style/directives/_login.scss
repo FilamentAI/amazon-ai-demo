@@ -1,0 +1,44 @@
+.splash-banner__fast-load {
+    background:
+        url("/_img/login-background-small.jpeg") 0% 0% / cover,
+        -webkit-gradient(
+            radial,
+            50% 15%,
+            20,
+            50% 15%,
+            1000,
+            from(rgba(148, 78, 100, 0.953)),
+            to(rgba(0, 0, 0, 0.953))
+        );
+    background-blend-mode: multiply;
+    background-size: cover;
+}
+.splash-banner__big-image {
+    background-blend-mode: multiply;
+    opacity: 0;
+    transition: opacity 1s linear;
+}
+.splash-banner__big-image.loaded {
+    opacity: 1;
+}
+.splash-banner {
+    .splash-banner__content {
+        margin: 0 auto;
+        z-index: 10;
+        position: relative;
+        .splash-banner__logo {
+            margin-bottom: 80px;
+            img {
+                width: 200px;
+                height: 45px;
+                margin-bottom: 3px;
+            }
+            .splash-banner__beta {
+                color: $brand-primary;
+                display: inline-block;
+                overflow: hidden;
+                margin-left: 6px;
+            }
+        }
+    }
+}

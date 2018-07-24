@@ -1,0 +1,524 @@
+
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+
+.background-primary {
+	background: $brand-primary;
+	color: $brand-white;
+}
+
+.background-secondary {
+	background: $brand-secondary;
+	color: $brand-white;
+}
+
+.background-third {
+	background: $brand-third;
+	color: $brand-white;
+}
+
+.background-fourth {
+	background: $brand-fourth;
+	color: $brand-white;
+}
+
+.background-white {
+	background: $brand-white;
+}
+
+.background-black {
+	background: #000;
+}
+
+.background-transparent {
+	background: transparent;
+}
+
+.background-alt {
+	background: $page-background-alt;
+}
+
+.colour-primary,
+.colour-primary * {
+	color: $brand-primary;
+}
+
+.colour-dark-all {
+	color: $text-primary !important;
+}
+
+.colour-secondary,
+.colour-secondary * {
+	color: $brand-secondary !important;
+}
+
+.colour-third,
+.colour-third * {
+	color: $brand-third;
+}
+
+.colour-danger,
+.colour-danger * {
+	color: $danger;
+}
+
+.color-fourth {
+	color: $brand-fourth;
+}
+
+.color-white {
+	color: $brand-white;
+}
+
+.color-white-all {
+	* {
+		color: $brand-white;
+	}
+}
+
+.color-success {
+	color: $success;
+}
+
+.color-black {
+	color: #000;
+}
+
+.text-left {
+	text-align: left !important;
+}
+
+.tiny {
+	color: $brand-white;
+	font-size: 9px;
+	text-transform: uppercase;
+}
+
+.text-right {
+	@include breakpoint(medium) {
+		text-align: right;
+	}
+}
+
+.text-centre {
+	text-align: center;
+}
+
+.text-underline {
+	text-decoration: underline;
+}
+
+.float-left {
+	float: left;
+}
+
+.float-right {
+	float: left;
+
+	@include breakpoint(medium) {
+		float: right;
+	}
+}
+
+.sticky {
+	position: fixed;
+	top: 100px;
+}
+
+.warning-background {
+	background: $warning;
+}
+
+.success-background {
+	background: $success;
+}
+
+.danger-background {
+	background: $danger;
+}
+
+img.responsive {
+	width: 100%;
+	height: auto;
+}
+
+.img-fixed {
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+.centre-all {
+	> * {
+		text-align: center;
+	}
+}
+
+.hide-images {
+	img {
+		display: none;
+	}
+}
+
+.hide-mobile {
+	display: none !important;
+
+	@include breakpoint(medium) {
+		display: block !important;
+	}
+}
+
+.capitalise {
+	text-transform: capitalize;
+}
+
+.inline {
+	display: inline-block;
+}
+
+.no-margin {
+	margin: 0 !important;
+}
+
+.no-margin-right {
+	margin-right: 0 !important;
+}
+
+.no-margin-top {
+	margin-top: 0 !important;
+}
+
+.no-bottom-margin {
+	margin: 0 !important;
+}
+
+.small-bottom-margin {
+	margin-bottom: $baseline / 4 !important;
+}
+
+.large-bottom-margin {
+	margin-bottom: $baseline !important;
+}
+
+.small-top-margin {
+	margin-top: $baseline / 4 !important;
+}
+
+.extra-large-top-margin {
+	margin-top: $baseline * 3 !important;
+}
+
+.large-top-margin {
+	margin-top: $baseline !important;
+}
+
+.large-left-margin {
+	margin-left: $baseline !important;
+}
+
+.ran--colour--1,
+.ran--colour--1 * {
+	color: #E2231A;
+	font-weight: bold;
+}
+
+.ran--colour--2,
+.ran--colour--2 * {
+	color: #FF6A00;
+	font-weight: bold;
+}
+
+.ran--colour--3,
+.ran--colour--3 * {
+	color: #E96BAF;
+	font-weight: bold;
+}
+
+.ran--colour--4,
+.ran--colour--4 * {
+	color: #6ABF4A;
+	font-weight: bold;
+}
+
+.ran--colour--5,
+.ran--colour--5 * {
+	color: #3E8DDD;
+	font-weight: bold;
+}
+
+.ran--colour--6,
+.ran--colour--6 * {
+	color: #4AC0E0;
+	font-weight: bold;
+}
+
+.ran--colour--7,
+.ran--colour--7 * {
+	color: #6F7170;
+	font-weight: bold;
+}
+
+.ran--background--1 {
+	background: #E2231A! important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#E2231A, 10%) !important;
+	}
+}
+
+.ran--background--2 {
+	background: #FF6A00 !important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#FF6A00, 10%) !important;
+	}
+}
+
+.ran--background--3 {
+	background: #E96BAF !important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#E96BAF, 10%) !important;
+	}
+}
+
+.ran--background--4 {
+	background: #6ABF4A !important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#6ABF4A, 10%) !important;
+	}
+}
+
+.ran--background--5 {
+	background: #3E8DDD !important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#3E8DDD, 10%)!important;
+	}
+}
+
+.ran--background--6 {
+	background: #4AC0E0 !important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#4AC0E0, 10%) !important;
+	}
+}
+
+.ran--background--7 {
+	background: #6F7170 !important;
+	color: $brand-white;
+
+	&:hover {
+		background: darken(#6F7170, 10%) !important;
+	}
+}
+
+.side-background-image {
+	position: absolute;
+	left: 0;
+	margin-top: 10px;
+}
+
+.centre-screen {
+	color: $brand-white;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 5;
+	position: absolute;
+}
+
+#loading-bar .bar {
+	background: $brand-primary;
+	height: 2px;
+}
+
+*::selection {
+	background: $brand-secondary;
+	color: $brand-white;
+}
+
+*::-moz-selection {
+	background: $brand-secondary;
+	color: $brand-white;
+}
+
+.no-padding {
+	padding: 0 !important;
+}
+
+.no-vertical-padding {
+	padding-top: 0 !important;
+	padding-bottom: 0 !important;
+}
+
+.banner-ibm,
+.banner-IBM {
+	background-image: url('/_img/header-ibm.jpg') !important;
+	background-size: cover !important;
+	background-position-y: 50% !important;
+}
+
+.banner-microsoft {
+	background-image: url('/_img/header-microsoft.jpg') !important;
+	background-size: cover !important;
+	background-position-y: 50% !important;
+}
+
+.banner-google {
+	background-image: url('/_img/header-google.jpg') !important;
+	background-size: cover !important;
+	background-position-y: 50% !important;
+}
+
+.fsp-cloudname {
+	color: $brand-white;
+	font-size: 12px;
+}
+
+.fsp-button.fsp-button--primary span {
+	color: $brand-white !important;
+	font-size: 13px !important;
+}
+
+.disabled-link {
+	cursor: default;
+	pointer-events: none;
+}
+
+.cursor {
+	cursor: pointer;
+}
+
+.full-width {
+	width: 100% !important;
+}
+
+.inherit-font {
+	font-size: inherit;
+}
+
+.loading-spinner {
+	animation: spinner 4s linear infinite;
+	-webkit-animation: spinner 4s linear infinite;
+  -moz-animation: spinner 4s linear infinite;
+  -ms-animation: spinner 4s linear infinite;
+  -o-animation: spinner 4s linear infinite;
+  display: inline-block;
+}
+
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+		50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.filter-button {
+	border-radius: 5px;
+	cursor: pointer;
+	height: 29px;
+	margin-right: 10px;
+	padding: 0 10px;
+
+	&:hover {
+		background-color: $border;
+	}
+}
+
+.icon-size {
+	font-size: 18px !important;
+}
+
+.active-filter-button {
+	background-color: $border;
+}
+
+.rotate-icon {
+	animation: rotateIcon 2s linear;
+}
+
+.border-bottom {
+	border-bottom: 2px solid $brand-primary;
+	padding-bottom: 5px;
+}
+
+@keyframes rotateIcon {
+	0% { transform: rotate(0deg); }
+	50% { transform: rotate(180deg); }
+	100% { 	transform: rotate(180deg); }
+}
+
+@include breakpoint(medium) {
+	.skew-left {
+		position: relative;
+		overflow: visible;
+
+		&:before {
+			content: ' ';
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			border-left: 100vw solid transparent;
+			border-bottom: 100px solid #FFF;
+			display: block;
+		}
+	}
+
+	.skew-right {
+		position: relative;
+	 margin-top: 80px;
+	 overflow: visible;
+
+
+		&:before {
+			content: ' ';
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			border-right: 100vw solid transparent;
+			border-bottom: 100px solid #202020;
+			display: block;
+		}
+	}
+}
+
+.file-list {
+	display: flex;
+	flex-wrap: wrap;
+
+	.file {
+		width: 33%;
+		border-radius: 8px;
+		margin-right: 5px !important;
+		margin-bottom: 5px !important;
+		border: 1px solid darken($border, 10%);
+
+		&:nth-child(3n) {
+			margin-right: 0 !important;
+		}
+
+		&:hover {
+			background: $border;
+		}
+	}
+}
+
+.no-border {
+	border: 0 !important;
+}
+
+@for $i from 1 through 3 {
+  .clamp-#{$i} {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: $i !important;
+    -webkit-box-orient: vertical;
+  }
+}

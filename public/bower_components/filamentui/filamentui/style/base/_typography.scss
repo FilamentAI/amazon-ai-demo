@@ -1,0 +1,193 @@
+/*
+ * Typography
+ */
+
+h1, h2, h3, h4, h5 {
+    font-family: 'Source Sans Pro';
+    margin: 10px 0px;
+    margin-bottom: 20px;
+    font-weight: 500;
+
+    &.inverted {
+        color: $brand-white;
+    }
+
+    &.subheading {
+        margin-top: -13px;
+    }
+
+    > .fa {
+        font-size: 0.8em;
+        opacity: 0.6;
+        margin-right: 5px;
+    }
+
+    > .filamentuiButton {
+        top: -15px;
+        right: -5px;
+        position: relative;
+        float: right;
+    }
+}
+
+h1 {
+    font-size: 24px;
+    color: $h1;
+    letter-spacing: 0.5px;
+    line-height: 25px;
+    font-weight: 400;
+    padding: 0 0 40px 0;
+    margin: 0;
+
+    &.no-padding {
+        padding: 0;
+    }
+}
+
+.filamentui-headerGroup {
+    > h5 {
+        display: block;
+        font-size: 14px;
+        color: #31708F;
+        margin-top: -15px;
+    }
+}
+
+h2 {
+    font-size: 20px;
+    color: $text-primary;
+    letter-spacing: 0.4px;
+}
+
+h3 {
+    font-size: 16px;
+    color: $brand-secondary;
+    letter-spacing: 0.7px;
+    line-height: 25px;
+}
+
+h4 {
+    font-size: 16px;
+    color: $text-primary;
+}
+
+h5 {
+    font-size: 14px;
+    color: $text-secondary;
+    letter-spacing: 0.4px;
+}
+
+.light {
+    font-weight: 200;
+}
+
+.warning {
+    color: $danger;
+}
+
+a, span, p, h1, h2, h3, h4, h5, i {
+
+	&.bold{
+		font-weight: bold;
+	}
+
+	&.light{
+		font-weight: 300;
+	}
+
+	&.uppercase{
+		text-transform: uppercase;
+	}
+
+	&.capitalize{
+		text-transform: capitalize;
+	}
+
+	&.italic{
+		text-transform: capitalize;
+	}
+
+	&.primary{
+		color: $brand-primary;
+	}
+
+	&.secondary{
+		color: $brand-primary;
+	}
+}
+
+p {
+    font-family: Nunito;
+    font-size: 14px;
+    color: $text-primary;
+    letter-spacing: 0.88px;
+    margin-bottom: 20px;
+
+    &.error {
+        color: $danger;
+    }
+
+    &.primary {
+        color: $brand-primary;
+    }
+
+    &.secondary {
+        color: $brand-secondary;
+    }
+
+    &.emphasised {
+        font-family: 'Source Sans Pro';
+        font-size: 40px;
+        color: $brand-secondary;
+        letter-spacing: 1px;
+        margin: 0px;
+
+        &.error {
+            color: $danger;
+        }
+    
+        &.primary {
+            color: $brand-primary;
+        }
+    
+        &.secondary {
+            color: $brand-third;
+        }
+    }
+}
+
+a {
+    color: inherit;
+    cursor: pointer;
+    text-decoration: none;
+    outline: 0 !important;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+span {
+	&.invalid {
+        font-size: .8em;
+		color: $invalid;
+	}
+}
+
+.loading-ellipsis {
+    &span {
+        display: inline-block !important;
+        animation-name: blink;
+        animation-duration: 2.5s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: both;
+
+        &:nth-child(2) {
+            animation-delay: .4s;
+        }
+
+        &:nth-child(3) {
+            animation-delay: .8s;
+        }
+    }
+}

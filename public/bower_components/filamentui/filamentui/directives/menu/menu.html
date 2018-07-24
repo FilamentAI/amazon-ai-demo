@@ -1,0 +1,24 @@
+<span class="filamentuiMenu" ng-class="position" tw-click-outside="_closeMenu()" ignore-if="_shouldHideMenu()">
+    <div class="menuButton" ng-click="_toggleOptions( $event )">
+        <i class="fa fa-ellipsis-h" ng-if="text == null"></i>
+        <span ng-if="text != null">{{ text }}</span>
+    </div>
+    <div class="options" ng-show="displayOptions">
+        <div class="menuOptionList">
+            <div ng-repeat="menuGroup in options" class="menuGroup helloWorld" ng-if="::_showMenuGroup(menuGroup, scope)">
+                <div ng-repeat="menu in menuGroup"
+                        class="menu {{ menu.class }}"
+                        ng-click="_clickMenu( $event, menu )"
+                        ng-class="{'disabled' : _disableMenu( menu, scope ) }"
+                        ng-if="_showMenu( menu, scope )">
+                    <div class="icon" ng-if="menu.icon != null">
+                        <i class="fa {{menu.icon}}" ng-if="menu.icon != null"></i>
+                    </div>
+                    <div class="menutitle">
+                        {{ menu.title }}
+                    </div>
+                <div>
+            </div>
+        </div>
+    </div>
+</span>

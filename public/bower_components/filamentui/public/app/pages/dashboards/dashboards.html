@@ -1,0 +1,284 @@
+<div class="help-bar-margin">
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <filamentui-hero-banner
+                title="hero_basic.title"
+                status="hero_basic.status"
+                description="hero_basic.description"
+                last-updated="hero_basic.lastUpdated">
+            </filamentui-hero-banner>
+        </div>
+
+        <div class="col-md-12 col-xs-12" style="margin-top: 30px">
+            <div class="example" style="width: 100%;">
+                <pre>
+&lt;filamentui-hero-banner
+    title="hero_basic.title"
+    status="hero_basic.status"
+    description="hero_basic.description"
+    last-updated="hero_basic.lastUpdated"&gt;
+&lt;/filamentui-hero-banner&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <filamentui-hero-banner
+                layout="'one_column'"
+                title="hero_one.title"
+                status="hero_one.status"
+                description="hero_one.description"
+                last-updated="hero_one.lastUpdated">
+                <p>
+                    I am a transclude paragraph
+                </p>
+                <div style="margin-top: 20px">
+                    <filamentui-button class="primary" click="clickMe()" style="margin: 0;">Transclude Button</filamentui-button>
+                    <filamentui-button class="secondary" click="clickMe()">Transclude Button</filamentui-button>
+                </div>
+            </filamentui-hero-banner>
+        </div>
+        <div class="col-md-12 col-xs-12" style="margin-top: 30px">
+            <div class="example" style="width: 100%;">
+                <pre>
+&lt;filamentui-hero-banner
+    layout="'one_column'"
+    title="hero_one.title"
+    status="hero_one.status"
+    description="hero_one.description"
+    last-updated="hero_one.lastUpdated"&gt;
+    &lt;p&gt;
+        I am a transclude paragraph
+    &lt;/p&gt;
+    &lt;div style="margin-top: 20px"&gt;
+        &lt;filamentui-button class="primary" click="clickMe()" style="margin: 0;">Transclude Button&lt;/filamentui-button&gt;
+        &lt;filamentui-button class="secondary" click="clickMe()">Transclude Button&lt;/filamentui-button&gt;
+    &lt;/div&gt;
+&lt;/filamentui-hero-banner&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <filamentui-hero-banner 
+                layout="'two_column'"
+                title="hero_two.title"
+                status="hero_two.status"
+                description="hero_two.description"
+                last-updated="hero_two.lastUpdated">
+                <pane-one>
+                    <p>
+                        This is `pane-one`.
+                    </p>
+                    <p>
+                        We transclude on the <span class="emphasised">first pane</span>.                        
+                    </p>
+                </pane-one>
+                <pane-two>
+                    <p>
+                        This is `pane-two`.
+                    </p>
+                    <p>
+                        We're a special <span class="emphasised">Custom Side Panel</span>.
+                    </p>
+                </pane-two>
+            </filamentui-hero-banner>
+        </div>
+
+        <div class="col-md-12 col-xs-12" style="margin-top: 30px">
+            <div class="example" style="width: 100%;">
+                <pre>
+&lt;filamentui-hero-banner 
+    layout="'two_column'"
+    title="hero_two.title"
+    status="hero_two.status"
+    description="hero_two.description"
+    last-updated="hero_two.lastUpdated"&gt;
+    &lt;pane-one&gt;
+        &lt;p&gt;
+            This is `pane-one`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We transclude on the &lt;span class="emphasised"&gt;first pane&lt;/span&gt;.                        
+        &lt;/p&gt;
+    &lt;/pane-one&gt;
+    &lt;pane-two&gt;
+        &lt;p&gt;
+            This is `pane-two`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We're a special &lt;span class="emphasised"&gt;Custom Side Panel&lt;/span&gt;.
+        &lt;/p&gt;
+    &lt;/pane-two&gt;
+&lt;/filamentui-hero-banner&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <filamentui-hero-banner 
+                layout="'two_column'"
+                position="'left'"
+                title="hero_two_left.title"
+                status="hero_two_left.status"
+                description="hero_two_left.description"
+                last-updated="hero_two_left.lastUpdated">
+                <pane-one>
+                    <p>
+                        This is `pane-one`.
+                    </p>
+                    <p>
+                        We transclude on the <span class="emphasised">first pane</span>.                        
+                    </p>
+                </pane-one>
+                <pane-two>
+                    <p>
+                        This is `pane-two`.
+                    </p>
+                    <p>
+                        We're a special <span class="emphasised">Custom Side Panel</span>.
+                    </p>
+                </pane-two>
+            </filamentui-hero-banner>
+        </div>
+
+        <div class="col-md-12 col-xs-12" style="margin-top: 30px">
+            <div class="example" style="width: 100%;">
+                <pre>
+&lt;filamentui-hero-banner 
+    layout="'two_column'"
+    position="'left'"
+    title="hero_two_left.title"
+    status="hero_two_left.status"
+    description="hero_two_left.description"
+    last-updated="hero_two_left.lastUpdated"&gt;
+    &lt;pane-one&gt;
+        &lt;p&gt;
+            This is `pane-one`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We transclude on the &lt;span class="emphasised"&gt;first pane&lt;/span&gt;.                        
+        &lt;/p&gt;
+    &lt;/pane-one&gt;
+    &lt;pane-two&gt;
+        &lt;p&gt;
+            This is `pane-two`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We're a special &lt;span class="emphasised"&gt;Custom Side Panel&lt;/span&gt;.
+        &lt;/p&gt;
+    &lt;/pane-two&gt;
+&lt;/filamentui-hero-banner&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <filamentui-hero-banner 
+                layout="'three_column'"
+                title="hero_three.title"
+                status="hero_three.status"
+                description="hero_three.description"
+                last-updated="hero_three.lastUpdated">
+                <pane-one>
+                    <p>
+                        This is `pane-one`.
+                    </p>
+                    <p>
+                        We transclude on the <span class="emphasised">first pane</span>.                        
+                    </p>
+                </pane-one>
+                <pane-two>
+                    <p>
+                        This is `pane-two`.
+                    </p>
+                    <p>
+                        We're a special <span class="emphasised">Custom Side Panel</span>.
+                    </p>
+                </pane-two>
+                <pane-three>
+                    <p>
+                        This is `pane-three`.
+                    </p>
+                    <p>
+                        Put some buttons here to be a bit different
+                    </p>
+                    <div style="">
+                        <filamentui-button class="primary" click="clickMe()" style="margin: 0 0 20px 0;">Transclude Button</filamentui-button>
+                        <filamentui-button class="secondary" click="clickMe()"  style="margin: 0 0 10px 0;">Transclude Button</filamentui-button>
+                    </div>
+                </pane-three>
+            </filamentui-hero-banner>
+        </div>
+
+        <div class="col-md-12 col-xs-12" style="margin-top: 30px">
+            <div class="example" style="width: 100%;">
+                <pre>
+&lt;filamentui-hero-banner 
+    layout="'three_column'"
+    title="hero_three.title"
+    status="hero_three.status"
+    description="hero_three.description"
+    last-updated="hero_three.lastUpdated"&gt;
+    &lt;pane-one&gt;
+        &lt;p&gt;
+            This is `pane-one`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We transclude on the &lt;span class="emphasised"&gt;first pane&lt;/span&gt;.                        
+        &lt;/p&gt;
+    &lt;/pane-one&gt;
+    &lt;pane-two&gt;
+        &lt;p&gt;
+            This is `pane-two`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            We're a special &lt;span class="emphasised"&gt;Custom Side Panel&lt;/span&gt;.
+        &lt;/p&gt;
+    &lt;/pane-two&gt;
+    &lt;pane-three&gt;
+        &lt;p&gt;
+            This is `pane-three`.
+        &lt;/p&gt;
+        &lt;p&gt;
+            Put some buttons here to be a bit different
+        &lt;/p&gt;
+        &lt;div style=""&gt;
+            &lt;filamentui-button class="primary" click="clickMe()" style="margin: 0 0 20px 0;"&gt;Transclude Button&lt;/filamentui-button&gt;
+            &lt;filamentui-button class="secondary" click="clickMe()"  style="margin: 0 0 10px 0;"&gt;Transclude Button&lt;/filamentui-button&gt;
+        &lt;/div&gt;
+    &lt;/pane-three&gt;
+&lt;/filamentui-hero-banner&gt;
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12 col-xs-12">
+            <filamentui-hero-banner 
+                layout="'custom'">
+                EVERYTHING IS CUSTOM
+            </filamentui-hero-banner>
+        </div>
+
+        <div class="col-md-12 col-xs-12" style="margin-top: 30px">
+            <div class="example" style="width: 100%;">
+                <pre>
+&lt;filamentui-hero-banner 
+    layout="'custom'"&gt;
+    EVERYTHING IS CUSTOM
+&lt;/filamentui-hero-banner&gt;       
+                </pre>
+            </div>
+        </div>
+    </div>
+</div>

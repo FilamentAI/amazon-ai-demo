@@ -1,0 +1,138 @@
+
+.filamentuiRoleCard {
+    .inner-wrapper {
+        color: $text-primary;
+        width: calc(100% - 40px);
+        height: 90%;
+        display: block;
+        margin: 20px auto;
+        position: relative;
+
+        .disabled {
+            position: absolute;
+            width: 100%;
+            top: 0;
+            height: 100%;
+            z-index: 100;
+            background: rgba(247, 247, 247, 0.85);
+            cursor: not-allowed;
+        }
+
+        .info {
+            z-index: 10;
+            position: absolute;
+            margin: 10px;
+
+            .fa,
+            .fal,
+            .fas {
+                color: lighten($brand-secondary, 20%);
+            }
+
+            .default {
+                display: block;
+            }
+
+            .hover {
+                display: none;
+            }
+
+            &:hover {
+                cursor: pointer;
+
+                .default {
+                    display: none;
+                }
+
+                .hover {
+                    display: block;
+                }
+            }
+        }
+
+        .card {
+            height: 100%;
+            min-height: 340px;
+            box-sizing: border-box;
+            background: $brand-white;
+            border: 2px solid $brand-white;
+            outline: 1px solid $border;
+
+            -webkit-box-shadow: 0px 4px 5px 1px rgba(192,192,192,0.75);
+            -moz-box-shadow: 0px 4px 5px 1px rgba(192,192,192,0.75);
+            box-shadow: 0px 4px 5px 1px rgba(192,192,192,0.75);
+
+            cursor: pointer;
+
+            overflow: hidden;
+            padding: 20px;
+            position: relative;
+
+            .card-img {
+                max-width: 132px;
+                margin: 0 auto;
+            }
+
+            img {
+                height: 120px;
+                margin: 10px 0 20px;
+            }
+
+            .card-content {
+                text-align: center;
+
+                h2 {
+                    font-weight: 200;
+                }
+
+                p {
+
+                }
+            }
+        }
+
+        .role-card {
+            &:hover,
+            &.selected,
+            &.active {
+                border: 2px solid $brand-primary;
+                outline: 1px solid $brand-primary;
+            }
+        }
+    }
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width : 320px) {
+    .role-card {
+        width: 100%;
+    }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (min-width : 480px) {
+    .filamentuiRoleCard {
+        width: 100%;
+    }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+    .filamentuiRoleCard {
+        width: 50%;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .filamentuiRoleCard {
+        width: 50%;
+    }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1320px) {
+    .filamentuiRoleCard {
+        width: 33.3%;
+    }
+}

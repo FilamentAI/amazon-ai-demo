@@ -1,0 +1,30 @@
+.filamentuiStatistic {
+  .value {
+    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+    font-size: 36px;
+    display: block;
+    margin-bottom: 20px;
+  }
+
+  svg {
+    .primary {
+      fill: $brand-primary;
+    }
+
+    .secondary {
+      fill: $brand-secondary;
+    }
+
+    .third {
+      fill: $brand-third;
+    }
+
+    .fourth {
+      fill: $brand-fourth;
+    }
+
+    .fifth {
+      fill: $brand-fifth;
+    }
+  }
+}

@@ -1,0 +1,72 @@
+
+.filamentui_layout.header,
+.filamentui_layout.headerbar,
+.filamentui_layout.headertitle {
+    .headerContent {
+        display: block;
+        min-height: 60px;
+        background-color: #333;
+        transition: all 0.4s ease;
+        width: 100%;
+        position: relative;
+        z-index: 9999;
+    }
+}
+
+.filamentui_layout.headerbar {
+    .headerBar {
+        min-height: 100px;
+        background-size: cover;
+
+        -webkit-box-shadow: 0px 1px 1px 0px rgb(54, 54, 54);
+        -moz-box-shadow: 0px 1px 1px 0px rgb(54, 54, 54);
+        box-shadow: 0px 1px 1px 0px rgb(54, 54, 54);
+
+        .headerBarContent {
+            padding: 10px 55px;
+
+            h1, h2, h3 {
+                color: #fff;
+                margin-bottom: 0;
+                font-weight: 500;
+                border-bottom : 0px;
+            }
+            h4, h5 {
+                color: #e20d79;
+                font-weight: 300;
+                -webkit-font-smoothing: auto;
+            }
+        }
+    }
+}
+
+.filamentui_layout .title {
+    box-sizing: border-box;
+    width: 100%;
+    overflow-y: auto;
+    float: left;
+    transition: width 0.4s ease;
+    margin-right: auto;
+    margin-left: auto;
+
+    padding-left: 80px;
+    padding-right: 80px;
+
+    h1, h2, h3 {
+        margin-bottom: 0;
+        border-bottom : 0px;
+    }
+    h1 {
+        padding-top: 40px;
+    }
+    h3 {
+        color: $text-primary;
+        font-weight: 600;
+    }
+    h4, h5 {
+        color: #e20d79;
+        font-weight: 300;
+        -webkit-font-smoothing: auto;
+    }
+
+}

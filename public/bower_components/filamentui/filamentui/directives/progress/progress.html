@@ -1,0 +1,8 @@
+<div class="filamentuiProgress">
+    <p>{{ label }}</p>
+    <div class="background" ng-class="{'animate' : options && options.animate}">
+        <div class="progress" ng-class="{'stripe' : options && options.stripe}" ng-style="_calcStyle()">
+            <span></span> <!-- For the animation of stripes -->
+        </div>
+    </div>
+</div>

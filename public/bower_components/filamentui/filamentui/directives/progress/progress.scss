@@ -1,0 +1,51 @@
+
+.filamentuiProgress {
+    @include border-box;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    p {
+        font-family: Nunito;
+        font-size: 14px;
+        color: $text-primary;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+        margin-top: 0px;
+    }
+
+    .background {
+        @include border-box;
+        @include border-radius($box-height * 2);
+        border:1px solid $input-outline;
+        background: $input-outline;
+        height: ( $box-height * 2 ) + 2;
+        width:100%;
+        position: relative;
+
+        .progress {
+            @include border-box;
+            @include border-radius($box-height * 2);
+            display: block;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            @include transition(width 1s ease-in-out 1s);
+
+            &.stripe:after {
+                @include stripe;
+            }
+        }
+    }
+
+    .animate {
+        .progress {
+            &:after {
+                display: none;
+            }
+
+            span {
+                @include stripe;
+                animation: move 2s linear infinite;
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+
+.filamentuiTags {
+  position: relative;
+
+  .tag-row {
+    display: inline-block;
+  }
+
+  .data-row {
+    float: right;
+    margin-top: 14px;
+  }
+
+  .tag {
+    padding: 2px 10px 3px;
+    border-radius: 20px;
+    color: white;
+    margin-right: 10px;
+    display: inline-block;
+    margin-top: 5px;
+
+    &.hoverable-tag {
+      cursor: pointer;
+    }
+  }
+
+  .more {
+    padding-left: 10px;
+    color: $brand-primary;
+    float: right;
+    font-size: 0.8em;
+
+    &:hover {
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+
+  .extended-tags {
+    position: absolute;
+    top: 100%;
+    left: auto;
+    right: 0;
+    margin: 5px 0px;
+    padding: 5px 5px 15px 15px;
+    cursor: pointer;
+    min-width: 300px;
+    max-width: 400px;
+    background: white;
+    z-index: 500;
+
+    opacity: 1;
+    border: 1px solid $input-outline;
+    @include border-radius(5px);
+    @include animation(fadein, 0.25s, 0s, linear);
+
+    text-align: center;
+    display: block;
+  }
+}

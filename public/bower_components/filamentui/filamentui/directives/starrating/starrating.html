@@ -1,0 +1,15 @@
+<div class="star-rating-container" ng-class="{ 'disabled' : disabled }">
+    <p ng-if="stars === 0">No ratings yet</p>
+    <div ng-if="stars > 0">
+        <i ng-if="stars >= 1" class="fas fa-star" aria-hidden="true" ng-click="_select(1)"></i>
+        <i ng-if="stars >= 2" class="fas fa-star" aria-hidden="true" ng-click="_select(2)"></i>
+        <i ng-if="stars >= 3" class="fas fa-star" aria-hidden="true" ng-click="_select(3)"></i>
+        <i ng-if="stars >= 4" class="fas fa-star" aria-hidden="true" ng-click="_select(4)"></i>
+        <i ng-if="stars >= 5" class="fas fa-star" aria-hidden="true" ng-click="_select(5)"></i>
+        <i ng-if="stars <= 0" class="fal fa-star notSelected" aria-hidden="true" ng-click="_select(1)"></i>
+        <i ng-if="stars <= 1" class="fal fa-star notSelected" aria-hidden="true" ng-click="_select(2)"></i>
+        <i ng-if="stars <= 2" class="fal fa-star notSelected" aria-hidden="true" ng-click="_select(3)"></i>
+        <i ng-if="stars <= 3" class="fal fa-star notSelected" aria-hidden="true" ng-click="_select(4)"></i>
+        <i ng-if="stars <= 4" class="fal fa-star notSelected" aria-hidden="true" ng-click="_select(5)"></i>
+    </div>
+</div>

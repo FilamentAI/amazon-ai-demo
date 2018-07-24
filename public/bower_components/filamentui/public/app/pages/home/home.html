@@ -1,0 +1,667 @@
+<div>
+    <div class="whitepanel" id="activity">
+        <h1>Recent Activity</h1>
+        <div class="demo">
+            <div>
+                <filamentui-activity activities="activities" key="'description'"></filamentui-activity>
+            </div>
+        </div>
+        <div class="example">
+            <p>
+                A simple timeline view of actions that have occured. 
+            </p>
+
+            <pre>
+&lt;filamentui-activity activities="activities"&gt;&lt;/filamentui-activity&gt;
+            </pre>
+
+            <p>
+                The activities directive can accept a list of items and an option 'action' parameter. The main use of the action is for optional navigation to more detailed activity logs. <pre pretty-json="activities"></pre>
+            </p>
+            <p>
+                The action field can be passed a click function:
+            </p>
+            <pre>
+action: {
+    "title": 'SHOW ALL',
+    "click": function () {
+        console.log('I have been clicked');
+    }
+}
+            </pre>
+        </div>
+    </div>
+    
+    <div class="whitepanel" id="statistics">
+        <h1>Statistics</h1>
+        <div class="demo">
+            <div class="row" style="display: flex; justify-content: space-around; align-items: center; flex-wrap: flex;">
+                <filamentui-statistic title="'Primary'" value="1" colour="'primary'"></filamentui-statistic>
+                <filamentui-statistic title="'Secondary'" value="10" colour="'secondary'"></filamentui-statistic>
+                <filamentui-statistic title="'Third'" value="255" colour="'third'"></filamentui-statistic>
+                <filamentui-statistic title="'Fourth'" value="1024" colour="'fourth'"></filamentui-statistic>
+                <filamentui-statistic title="'Fifth'" value="0" colour="'fifth'"></filamentui-statistic>
+            </div>
+        </div>
+        <div class="example">
+            <pre>
+&lt;filamentui-statistic title="'Primary'" value="1" colour="'primary'"&gt;&lt;/filamentui-statistic&gt;
+&lt;filamentui-statistic title="'Secondary'" value="10" colour="'secondary'"&gt;&lt;/filamentui-statistic&gt;
+&lt;filamentui-statistic title="'Third'" value="255" colour="'third'"&gt;&lt;/filamentui-statistic&gt;
+&lt;filamentui-statistic title="'Fourth'" value="1024" colour="'fourth'"&gt;&lt;/filamentui-statistic&gt;
+&lt;filamentui-statistic title="'Fifth'" value="0" colour="'fifth'"&gt;&lt;/filamentui-statistic&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="whitepanel" id="tabs">
+        <h1>Tabs</h1>
+        <div class="demo">
+            <filamentui-tabs position="'horizontal'">
+
+                <filamentui-tab index="0" name="Details">
+                    <!-- tab 1 content -->
+                    These are some details
+                </filamentui-tab>
+            
+                <filamentui-tab index="1" name="Switch">
+                    <!-- tab 2 content -->
+                    This tab is switched!
+                </filamentui-tab>
+            
+            </filamentui-tabs>
+        </div>
+        <div class="example">
+            <p>
+                Tabs enable a user to swap between views of data. The wrapping tabs container will take the width of the container it is placed in.
+            </p>
+            <pre>
+&lt;filamentui-tabs position="'horizontal'"&gt;
+    &lt;filamentui-tab index="0" name="Details"&gt;
+        <!-- tab 1 content -->
+        These are some details
+    &lt;/filamentui-tab&gt;
+
+    &lt;filamentui-tab index="1" name="Switch"&gt;
+        <!-- tab 2 content -->
+        This tab is switched!
+    &lt;/filamentui-tab&gt;
+&lt;/filamentui-tabs&gt;
+            </pre>
+            <p>
+                Currently only a 'horizontal' styling is implemented.
+            </p>
+        </div>
+    </div>
+    
+    <div class="whitepanel">
+        <h1>Pills</h1>
+        <div class="demo">
+            <filamentui-pills ng-model="pill" options="pills" default-index="3"></filamentui-pills>
+        </div>
+        <div class="example">
+            <p>
+                Selected Pill: <pre pretty-json="pill"></pre>
+            </p>
+            <pre>
+&lt;filamentui-pills ng-model="pill" options="pills" default-index="3"&gt;&lt;/filamentui-pills&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="whitepanel" id="inputs">
+        <h1>Inputs</h1>
+        <div class="demo">
+            <div>
+                <filamentui-input 
+                    label="'Date Picker'" 
+                    placeholder="'Select a Date'" 
+                    ng-model="test.dateInput"
+                    date="date"
+                    size="'medium'">
+                </filamentui-input>
+                
+                <filamentui-input 
+                    label="'H4 Input Header'" 
+                    placeholder="'text text'" 
+                    info-message="'Something to help you'" 
+                    error-message="'Must be longer than 3 characters'" 
+                    ng-model="test.basicInput" 
+                    valid="test.basicInput.length > 3">
+                </filamentui-input>
+
+                <filamentui-input 
+                    label="'H4 Input Header'" 
+                    placeholder="'Placeholder text'" 
+                    error-message="'Must be a numbe'" 
+                    ng-model="test.basicInput" 
+                    valid="isNumber(test.basicInput)" 
+                    required="true">
+                </filamentui-input>
+                
+                <filamentui-input 
+                    label="'H4 Input Header'" 
+                    placeholder="'Placeholder text'" 
+                    info-message="'Something to help you'" 
+                    error-message="'Must be longer than 3 characters'" 
+                    ng-model="test.basicInput" 
+                    valid="test.basicInput.length > 3" 
+                    ng-disabled="true">
+                </filamentui-input>
+
+                <filamentui-input 
+                    label="'H4 Input Header'" 
+                    placeholder="'Placeholder text'" 
+                    info-message="'Something to help you'" 
+                    error-message="'Must be longer than 3 characters'" 
+                    ng-model="test.basicInput" 
+                    valid="test.basicInput.length > 3">
+                </filamentui-input>
+
+                <filamentui-input 
+                    class="helper" 
+                    required="true" 
+                    label="'Helper Input'" 
+                    placeholder="'Enter Text here'" 
+                    ng-model="test.helpInput" 
+                    help-message="'This is a help message'">
+                </filamentui-input>
+
+                <filamentui-input 
+                    class="search" 
+                    label="'No Search Title'" 
+                    placeholder="'Search Here'" 
+                    ng-model="test.search">
+                </filamentui-input>
+
+                <filamentui-input 
+                    rows="5" 
+                    class="helper" 
+                    label="'No Search Title'" 
+                    valid="test.textarea.length > 5" 
+                    placeholder="'Search Here'" 
+                    ng-model="test.textarea">
+                </filamentui-input>
+ 
+                <filamentui-input 
+                    class="select" 
+                    label="'No Search Title'" 
+                    valid="selectedOption != null" 
+                    options="selectOptions" 
+                    ng-model="selectedOption">
+                </filamentui-input>
+
+            </div>
+
+            <div>
+                <filamentui-checkbox ng-model="testCheckbox" label="'Example checkbox'"></filamentui-checkbox>
+            </div>
+            
+            <div>
+                <filamentui-radio ng-model="testRadio1" value="'first'" group="'testGroup1'" label="'Example Radio 1 ( group 1 )'"></filamentui-radio>
+                <filamentui-radio ng-model="testRadio1" value="'second'" group="'testGroup1'" label="'Example Radio 2 ( group 1 )'"></filamentui-radio>
+                <filamentui-radio ng-model="testRadio2" value="'third'" group="'testGroup2'" label="'Example Radio A ( group 2 )'"></filamentui-radio>
+                <filamentui-radio ng-model="testRadio2" value="'forth'" group="'testGroup2'" label="'Example Radio B ( group 2 )'"></filamentui-radio>
+            </div>
+        </div>
+        <div class="example">
+            <p>
+                To use the date picker, specify a date attribute using the following setup: <pre pretty-json="date"></pre>
+            </p>
+            <p>
+                The 'max' date specifies the maximum date a user may select. 'set' specifies the default selected date. Inputs are returned in the given 'format'. These formats must be valid as per the standard for JavaScript Date Objects.
+            </p>
+            <pre>
+&lt;filamentui-input title="'H4 Input Header'" placeholder="'Placeholder text'" ng-model="test.basicInput" valid="isNumber(test.basicInput)"&gt;&lt;/filamentui-input&gt;
+
+&lt;filamentui-input class="helper" title="'Helper Input'" placeholder="'Enter Text here'" ng-model="test.helpInput" help="displayHelp()"&gt;&lt;/filamentui-input&gt;
+
+&lt;filamentui-input class="search" title="'No Search Title'" placeholder="'Search Here'" ng-model="test.search"&gt;&lt;/filamentui-input&gt;
+            </pre>
+            <pre>
+{{ test | json : 4 }}
+            </pre>
+            <pre>
+{{ testCheckbox }}
+{{ testRadio1 }}
+{{ testRadio2 }}
+            </pre>
+            <pre>
+{{ selectedOption }}
+            </pre>
+        </div>
+    </div>
+
+    <div class="whitepanel" id="cards">
+        <h1>Cards</h1>
+        <h2>Hub Cards</h2>
+        <div class="pill-header">
+            <filamentui-pills ng-model="cardPill" options="cardPills"></filamentui-pills>
+        </div>
+        <div class="card-container-demo">
+            <filamentui-card-container cards="cards.data" actions="cards.actions" show-rating="true" pager-id="'demo_one'" options="{ perpage : 2 }" add-title="'Create New Card Pack'"></filamentui-card-container>
+        </div>
+
+        <div class="demo">
+            <filamentui-card model="unpublishedCard" ng-click="clickMe()" show-rating="false" style="width:350px;"></filamentui-card>
+            <filamentui-card model="wDocumentCard" ng-click="clickMe()" show-rating="false" style="width:350px;"></filamentui-card>
+            <filamentui-card model="wSentenceCard" ng-click="clickMe()" show-rating="false" style="width:350px;"></filamentui-card>
+            <filamentui-card model="wWordCard" ng-click="clickMe()" show-rating="false" style="width:350px;"></filamentui-card>
+            <filamentui-card model="addCard" ng-click="clickMe()" show-rating="false" style="width:350px;height:310px;"></filamentui-card>
+        </div>
+        <div class="example">
+            <pre>
+Hub cards allow for sets of model information to be displayed clearly and are given pagination options by default. They are generally used to display dynamic collections of user driven data. Given this, it is possible to rename the title on the add card to react to different situations and each card displays a button that suggests what the card data is used for. Cards react similarly to buttons when clicked to provide tactile feedback.
+
+Card layouts of this type expect the surrounding page to handle filtering, and for this to be passed into the api that the card set uses to pull the correct data. This is similar to how tables function with the difference that the card container does not have the ability to pass the filtering data into the directive as it does not need to be displayed internally in the same way that a table requires.
+
+By default, cards are expected to be accessed via the wrapper directive 'filamentuiCardContainer'
+
+&lt;filamentui-card-container cards="cards.data" actions="cards.actions" show-rating="true" pager-id="'demo_one'" options="{ perpage : 2 }" add-title="'Create New Card Pack'"&gt;&lt;/filamentui-card-container&gt;
+
+Pagination options can be passed in the 'options' attribute, as with tables.
+The pager_id attribute is a required attribute.
+
+Cards current support the current types:
+
+&lt;filamentui-card model="unpublishedCard" ng-click="clickMe()" show-rating="false"&gt;&lt;/filamentui-card&gt;
+&lt;filamentui-card model="wDocumentCard" ng-click="clickMe()" show-rating="false"&gt;&lt;/filamentui-card&gt;
+&lt;filamentui-card model="wSentenceCard" ng-click="clickMe()" show-rating="false"&gt;&lt;/filamentui-card&gt;
+&lt;filamentui-card model="wWordCard" ng-click="clickMe()" show-rating="false"&gt;&lt;/filamentui-card&gt;
+&lt;filamentui-card model="addCard" ng-click="clickMe()" show-rating="false"&gt;&lt;/filamentui-card&gt;
+            </pre>
+        </div>
+
+
+        <h2>Role Cards</h2>
+        <filamentui-role-card-container cards="roleCards" information="information" ng-model="selectedRoleCard"></filamentui-role-card-container>
+
+        <div class="demo">
+            <filamentui-role-card click="" card="rcUnpublishedModel" style="width: 350px" information="information"></filamentui-role-card>
+            <filamentui-role-card click="" card="rcWordModel" style="width: 350px"></filamentui-role-card>
+            <filamentui-role-card click="" card="rcDocumentModel" style="width: 350px"></filamentui-role-card>
+            <filamentui-role-card click="" card="rcSentenceModel" style="width: 350px" disabled></filamentui-role-card>
+        </div>
+        <div class="example">
+            
+            <p>
+                Selected Role Card:
+            </p>
+            <pre pretty-json="selectedRoleCard"></pre>
+            <p>
+                Role cards are a similar directive to Hub cards.
+            </p>
+            <p>
+                Role cards are expected to used during form layouts where a single option will be chosen by the user out of a pre-defined list of options. Given this, rather than hub cards which allow the developer to pass an action list (to allow each card to have a slightly different action) the role cards will only pipe back a copy of the card model that the user has selected. This allows the form to used the selected data in the desired manner.
+            </p>
+            <p>
+                It is also possible to provide a function via the <code>information</code> attribute. This makes an information icon appear at the top left of the card, and provides another layer of data based on the function attached. An example use would be a popover or modal.
+            </p>
+            <p>
+                With this in mind, role card container does not accept pagination options and should not be used with too many options.
+            </p>
+            <pre>
+&lt;filamentui-role-card-container cards="roleCards" ng-model="selectedRoleCard"&gt;&lt;/filamentui-role-card-container&gt;
+            </pre>
+            <p>
+                The following card types are available:
+            </p>
+            <pre>
+&lt;filamentui-role-card click="" card="rcUnpublishedModel" style="width: 350px"&gt;&lt;/filamentui-role-card&gt;
+&lt;filamentui-role-card click="" card="rcWordModel" style="width: 350px"&gt;&lt;/filamentui-role-card&gt;
+&lt;filamentui-role-card click="" card="rcDocumentModel" style="width: 350px"&gt;&lt;/filamentui-role-card&gt;
+&lt;filamentui-role-card click="" card="rcSentenceModel" style="width: 350px"&gt;&lt;/filamentui-role-card&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="whitepanel" id="tables">
+        <h1><a ui-sref="tables">Tables</a></h1>
+
+        <p>Tables now have their own page.</p>
+    </div>
+
+    <div class="whitepanel" id="progress">
+        <h1>Progress Bars</h1>
+        <div class="demo">
+            <div>
+                <filamentui-progress label="'Static progress'" progress="'50'"></filamentui-progress>
+                <filamentui-progress label="'Striped, animated progress'" progress="'50'" options="progressOptions"></filamentui-progress>
+                <filamentui-progress label="'Dynamic progress variable'" progress="progress"></filamentui-progress>
+                <filamentui-progress label="'Dynamic progress function'" progress="progressFunction()"></filamentui-progress>
+                <filamentui-progress label="'Static background colour'" progress="progressFunction()" background="'#208040'"></filamentui-progress>
+                <filamentui-progress label="'Dynamic background colour'" progress="progressFunction()" background="backgroundDynamic"></filamentui-progress>
+            </div>
+        </div>
+
+        <div class="example">
+            <pre>
+&lt;filamentui-progress label="'Static progress'" progress="'50'"&gt;&lt;/filamentui-progress&gt;
+&lt;filamentui-progress label="'Striped, animated progress'" progress="'50'" options="progressOptions"&gt;&lt;/filamentui-progress&gt;
+&lt;filamentui-progress label="'Dynamic progress variable'" progress="progress"&gt;&lt;/filamentui-progress&gt;
+&lt;filamentui-progress label="'Dynamic progress function'" progress="progressFunction()"&gt;&lt;/filamentui-progress&gt;
+&lt;filamentui-progress label="'Static background colour'" progress="progressFunction()" background="'#208040'"&gt;&lt;/filamentui-progress&gt;
+&lt;filamentui-progress label="'Dynamic background colour'" progress="progressFunction()" background="backgroundDynamic"&gt;&lt;/filamentui-progress&gt;
+            </pre>
+
+            <p>Progress bars require <code>label</code> and <code>progress</code> attributes.</p>
+            <p>There is an optional <code>background</code> attribute. This should be a function that will accept the progress (0-100) as a parameter.</p>
+            <p>There is an optional <code>options</code> attribute. This should be an object with <code>stripe</code> and <code>animate</code> as Boolean properties.</p>
+
+            <pre pretty-json="progressOptions"></pre>
+        </div>
+    </div>
+
+    <div class="whitepanel" id="buttons">
+        <h1>Basic Buttons</h1>
+        <div class="demo">
+            <div>
+                <filamentui-button class="primary" click="clickMe()">Primary Button</filamentui-button>
+                <filamentui-button class="secondary" click="clickMe()">Secondary Button</filamentui-button>
+                <filamentui-button class="back" click="clickMe()">Back Button</filamentui-button>
+                <filamentui-button class="info" click="clickMe()">Info Button</filamentui-button>
+                <filamentui-button class="delete" click="clickMe()">Delete Button</filamentui-button>
+            </div>
+
+            <div>
+                <filamentui-button class="primary" ng-disabled="buttonsDisabled" click="clickMe()">Primary Button</filamentui-button>
+                <filamentui-button class="secondary" ng-disabled="buttonsDisabled" click="clickMe()">Secondary Button</filamentui-button>
+                <filamentui-button class="back" ng-disabled="buttonsDisabled" click="clickMe()">Back Button</filamentui-button>
+                <filamentui-button class="info" ng-disabled="buttonsDisabled" click="clickMe()">Info Button</filamentui-button>
+                <filamentui-button class="delete" ng-disabled="buttonsDisabled" click="clickMe()">Delete Button</filamentui-button>
+            </div>
+
+            <div>
+                <filamentui-checkbox label="'Disable Buttons'" ng-model="buttonsDisabled"></filamentui-checkbox>
+            </div>
+
+            <div>
+                <filamentui-button class="primary" click="clickMe()" size="'small'">Primary Button</filamentui-button>
+                <filamentui-button class="secondary" click="clickMe()" size="'small'">Secondary Button</filamentui-button>
+                <filamentui-button class="back" click="clickMe()" size="'small'">Back Button</filamentui-button>
+                <filamentui-button class="info" click="clickMe()" size="'small'">Info Button</filamentui-button>
+                <filamentui-button class="delete" click="clickMe()" size="'small'">Delete Button</filamentui-button>
+            </div>
+        </div>
+
+        <div class="example">
+            <pre>
+&lt;filamentui-button class="primary" click="clickMe()" ng-disabled="disableButton()"&gt;Primary Button&lt;/filamentui-button&gt;
+
+&lt;filamentui-button class="secondary" click="clickMe()" ng-disabled="disableButton()"&gt;Secondary Button&lt;/filamentui-button&gt;
+
+&lt;filamentui-button class="back" click="clickMe()" ng-disabled="disableButton()"&gt;Back Button&lt;/filamentui-button&gt;
+
+&lt;filamentui-button class="info" click="clickMe()" ng-disabled="disableButton()"&gt;Info Button&lt;/filamentui-button&gt;
+
+&lt;filamentui-button class="delete" click="clickMe()" ng-disabled="disableButton()"&gt;Delete Button&lt;/filamentui-button&gt;
+            </pre>
+
+            <p>An optional <code>ng-disabled</code> function can be passed which if returns true will disable the button</p>
+            <p>Passing a <code>click</code> function will determine what action is taken when the button is clicked, and if not disabled.</p>
+        </div>
+    </div>
+
+    <div class="whitepanel" id="buttons2">
+        <h1>Menu and Plus buttons</h1>
+
+        <div class="demo">
+            <div>
+                <filamentui-button class="primary" click="clickMe()" open-on-select-option="false" options="buttonOptions">Select False</filamentui-button>
+                <filamentui-button class="primary" click="clickMe()" open-on-select-option="true" options="buttonOptions">Select True</filamentui-button>
+                <filamentui-button class="primary" click="clickMe()" disabled="true" options="buttonOptions">Disabled</filamentui-button>
+            </div>
+
+            <div>
+                <h5>Single Click Plus Button</h5>
+                <filamentui-button class="plus" click="clickMe()"></filamentui-button>
+            </div>
+
+            <div>
+                <h5>Left hand-side plus</h5>
+                <filamentui-button class="plus" options="plusOptions"></filamentui-button>
+            </div>
+
+            <div style="text-align: right;">
+                <h5>Right hand-side plus</h5>
+                <filamentui-button class="plus" options="plusOptions" position="'right'"></filamentui-button>
+            </div>
+        </div>
+
+        <div class="example">
+            <pre>&lt;filamentui-button class="primary" click="clickMe()" open-on-select-option="false" options="buttonOptions"&gt;Primary Button&lt;/filamentui-button&gt;</pre>
+
+            <p>The <code>open-on-select-option</code> attribute will determine whether the action chosen in the menu occurs immediately, or if it will only set the action that will occur on 'click' of the main button. Selecting a menu option will always change the main button action.</p>
+
+            <pre>&lt;filamentui-button class="plus" click="clickMe()"&gt;&lt;/filamentui-button&gt;</pre>
+
+            <p>No menu presented, will only perform the action given by <code>click</code>.</p>
+
+            <pre>
+&lt;filamentui-button class="plus" options="plusOptions"&gt;&lt;/filamentui-button&gt;
+
+&lt;filamentui-button class="plus" options="plusOptions" position="'right'"&gt;&lt;/filamentui-button&gt;
+            </pre>
+
+            <p>Plus Buttons with menus will always ignore the <code>open-on-select-option</code> button if passed.</p>
+
+            <p>Provide <code>position="'right'"</code> if you want the menu to appear fixed to the right hand side of the button, rather than the left.</p>
+        </div>
+    </div>
+
+    <div class="whitepanel" id="buttons3">
+        <h1>Animated Buttons</h1>
+
+        <div class="demo">
+            <filamentui-button class="primary" click="clickMePromise()">Animated Button</filamentui-button>
+            <filamentui-button class="primary" options="promiseButtonOptions">With Options</filamentui-button>
+        </div>
+
+        <div class="example">
+            <pre>&lt;filamentui-button class="primary" click="clickMePromise()"&gt;Animated Button&lt;/filamentui-button&gt;</pre>
+            <p>If the click function returns a promise then the button will switch to a loading symbol until the promise is complete</p>
+        </div>
+    </div>
+
+
+    <div class="whitepanel" id="paging">
+        <h1>Paging</h1>
+        <div class="demo">
+            <div>
+                <!-- <filamentui-pager ng-model="currentPage" count="35" step="3"></filamentui-pager> -->
+                <!-- <filamentui-pager options=""></filamentui-pager> -->
+            </div>
+        </div>
+        <div class="example">
+            TODO: Fix a way of viewing this without an associted object (for demo purposes only)
+
+            Current Page : <pre>{{ currentPage }}</pre>
+        </div>
+    </div>
+
+
+    <div class="whitepanel">
+        <h1>Ratings</h1>
+        <div class="demo">
+            <filamentui-star-rating ng-model="stars" ></filamentui-star-rating>
+            <filamentui-star-rating ng-model="stars" disabled="'true'"></filamentui-star-rating>
+        </div>
+        <div class="example">
+            &lt;filamentui-star-rating ng-model="stars" disabled="'true'"&gt;&lt;/filamentui-star-rating&gt;
+        </div>
+    </div>
+    <div class="whitepanel" id="typography">
+        <h1>Typography</h1>
+        <div class="demo">
+            <div>
+                <h1>H1
+                    <filamentui-settings settings="displayHelp()"></filamentui-settings>
+                </h1>
+                <h1>H1
+                    <filamentui-help help="displayHelp()"></filamentui-help>
+                </h1>
+                <h1>H1 with a button
+                    <filamentui-button class="secondary" click="clickMe()">Secondary Button</filamentui-button>
+                </h1>
+
+                <div class="filamentui-headerGroup">
+                    <h1>
+                        <i class="fa fa-fw fa-users"></i>
+                        An H1 with an H5 as explanatory text
+                        <filamentui-help help="displayHelp()"></filamentui-help>
+                    </h1>
+                    <h5>Some explanation here</h5>
+                </div>
+
+                <h2>H2</h2>
+                <h3>H3</h3>
+                <h4>H4</h4>
+                <h5>H5</h5>
+                <p>
+                    Paragraph text
+                </p>
+                <filamentui-label text="labelData.text" labelclass="labelData.class"></filamentui-label>
+            </div>
+        </div>
+        <div class="example">
+            <pre>
+&lt;h1&gt;H1&lt;/h1&gt;
+
+&lt;h1&gt;H1&lt;filamentui-help help="displayHelp()"&gt;&lt;/filamentui-help&gt;&lt;/h1&gt;
+
+&lt;h2&gt;H2&lt;/h2&gt;
+
+&lt;h3&gt;H3&lt;/h3&gt;
+
+&lt;h4&gt;H4&lt;/h4&gt;
+
+&lt;h5&gt;H5&lt;/h5&gt;
+
+&lt;p&gt;
+    Paragraph text
+&lt;/p&gt;
+            </pre>
+        </div>
+    </div>
+    <div class="whitepanel" id="emphasised">
+        <h1>Emphasised Text</h1>
+        <div class="demo">
+            <div>
+                <p class="emphasised">Emphasised text</p>
+                <p class="emphasised primary">Emphasised text</p>
+                <p class="emphasised secondary">Emphasised text</p>
+            </div>
+        </div>
+        <div class="example">
+            <pre>
+&lt;p class="emphasised"&gt;Emphasised text&lt;/p&gt;
+
+&lt;p class="emphasised primary"&gt;Emphasised text&lt;/p&gt;
+
+&lt;p class="emphasised secondary"&gt;Emphasised text&lt;/p&gt;
+            </pre>
+        </div>
+    </div>
+
+
+
+    <div class="whitepanel" id="menu">
+        <h1>Menu</h1>
+        <div class="demo">
+            <div>
+                <h5>Left hand-side menu.</h5>
+                <filamentui-menu options="menu"></filamentui-menu>
+            </div>
+            <div style="text-align: right;">
+                <h5>Right hand-side menu</h5>
+                <filamentui-menu options="menu" position="'right'"></filamentui-menu>
+                <p>Provide 'right' as a position variable if you want the menu to appear fixed to the right hand side of the button, rather than the left.</p>
+            </div>
+            <div>
+                <filamentui-checkbox ng-model="allowDeleteMenu">Enabled Delete Menu Items</filamentui-checkbox>
+            </div>
+        </div>
+        <div class="example">
+            <pre>
+&lt;filamentui-menu options="menu"&gt;&lt;/filamentui-menu&gt;
+            </pre>
+            <pre>
+Configures a drop down menu with a set of actions. An example is provided by default. The 'action' method is called when selected and passed the current menu item as a parameter.
+            </pre>
+            <pre>
+$scope.menu = [
+    [
+        {
+            "title" : "Edit",
+            "icon" : "fa-edit",
+            "class" : "",
+            "action" : function ( item ) {
+                alert("clicked on edit\n." + JSON.stringify(item));
+            },
+        }
+    ], [
+        {
+            "title" : "Delete",
+            "icon" : "fa-times",
+            "class" : "warning",
+            "action" : function ( item ) {
+                alert("clicked on edit\n." + JSON.stringify(item));
+            },
+            "disabled" : function () {
+                return !$scope.allowDeleteMenu;
+            }
+        }
+    ]
+]
+            </pre>
+        </div>
+    </div>
+    <div class="whitepanel" id="navigation">
+        <h1>Navigation</h1>
+        <div class="demo">
+            <div>
+                <filamentui-back title="'Back to previous page'" back="navigateBack()"></filamentui-back>
+            </div>
+        </div>
+        <div class="example">
+            <pre>
+&lt;filamentui-back title="'Back to previous page'" back="navigateBack()"&gt;&lt;/filamentui-back&gt;
+            </pre>
+        </div>
+    </div>
+
+    <div class="whitepanel" id="icons">
+        <h1>Icons</h1>
+        <div class="demo">
+            <filamentui-icon status="'COMPLETE'"></filamentui-icon>
+            <filamentui-icon status="'TRAINING'"></filamentui-icon>
+            <filamentui-icon status="'ENHANCING'"></filamentui-icon>
+            <filamentui-icon status="'FAILED'"></filamentui-icon>
+            <filamentui-icon>TEST</filamentui-icon>
+        </div>
+        <div class="example">
+            <pre>
+Used to feed icons into table columns.
+
+&lt;filamentui-icon status="'COMPLETE'"&gt;&lt;/filamentui-icon&gt;
+&lt;filamentui-icon status="'TRAINING'"&gt;&lt;/filamentui-icon&gt;
+&lt;filamentui-icon status="'ENHANCING'"&gt;&lt;/filamentui-icon&gt;
+&lt;filamentui-icon status="'FAILED'"&gt;&lt;/filamentui-icon&gt;
+&lt;filamentui-icon&gt;TEST&lt;/filamentui-icon&gt;
+            </pre>
+        </div>
+    </div>
+
+    <div class="whitepanel" id="loading">
+        <h1>Loading</h1>
+        <div class="demo">
+            <filamentui-loader></filamentui-loader>
+            <filamentui-loader type="'dots'"></filamentui-loader>
+        </div>
+        <div class="example">
+            <pre>
+&lt;filamentui-loader&gt;&lt;/filamentui-loader&gt;
+&lt;filamentui-loader type="'wave'"&gt;&lt;/filamentui-loader&gt;
+
+&lt;filamentui-loader type="'dots'"&gt;&lt;/filamentui-loader&gt;
+            </pre>
+        </div>
+    </div>
+</div>

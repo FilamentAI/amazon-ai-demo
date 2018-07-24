@@ -1,0 +1,358 @@
+
+.filamentuiCard {
+    min-height: $card-height;
+    perspective: 1000px;
+
+    font-family: 'Source Sans Pro';
+
+    .filamentuiButton {
+        font-size: 14px;
+        min-height: 40px;
+
+        .clicker {
+            padding: 10px 5px;
+        }
+
+        &:hover {
+            box-shadow: none;
+        }
+    }
+
+    &:hover .flip,
+    &.hover .flip {
+        transform: rotateY(180deg);
+        transition-delay: 0.8s;
+    }
+
+    .flip {
+        width: 90%;
+        height: 90%;
+        margin: 10px auto;
+        -webkit-transition: 0.6s; /* Safari */
+        -webkit-transition-delay: 0.4s; /* Safari */
+        transition: 0.6s;
+        transition-delay: 0.4s;
+        transform-style: preserve-3d;
+        position: relative;
+        box-shadow: 0 2px 4px $border;
+    }
+
+    .front,
+    .back {
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+    }
+
+    .front {
+        z-index: 2;
+        transform: rotateY(0deg);
+    }
+
+    .back {
+        transform: rotateY(180deg);
+    }
+
+    .static {
+        position: relative;
+
+        &:hover {
+            .clickable .filamentuiButton {
+                color: $brand-white;
+                font-weight: 200;
+                background-image: linear-gradient(116deg, $button-gradient-start 0%, $button-gradient-end 100%);
+            }
+        }
+    }
+
+    .card__loading {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background: #222;
+        border: 1px solid $border;
+        background: rgba(247, 247, 247, 0.85);
+        z-index: 999;
+        top: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+
+        .ui-loader {
+            margin: 0;
+        }
+
+        .dots {
+            font-size: 20px;
+
+            span {
+                margin-left: 10px;
+            }
+        }
+    }
+
+    .card {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        background: $brand-white;
+        border: 1px solid $border;
+        position: relative;
+        min-height: $card-height;
+
+        padding: 20px 30px;
+
+        -webkit-box-shadow: 0 2px 4px #E5E5E5;
+        -moz-box-shadow: 0 2px 4px #E5E5E5;
+        box-shadow: 0 2px 4px #E5E5E5;
+
+        p {
+            color: $text-secondary;
+            font-weight: lighter;
+            font-size: 14px;
+        }
+
+        .card-banner {
+            right: -4px;
+            top: -8px;
+            position: absolute;
+            background: $brand-orange;
+            color: $brand-white;
+            padding: 4px 8px;
+            font-size: 12px;
+            box-shadow: 2px 2px darken($brand-orange, 10%);
+            letter-spacing: 0.6px;
+
+            i {
+                margin-right: 8px;
+            }
+        }
+
+        .card-header {
+            padding: 5px 0px 15px 0px;
+            box-sizing: border-box;
+            width: 100%;
+            word-break: break-all;
+
+            h3 {
+                margin: 0px;
+                margin-bottom: 8px;
+                padding-bottom: 2px;
+                font-size: 20px;
+                font-weight: 200;
+                letter-spacing: 1.4px;
+                color: $text-primary;
+
+                position: relative;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 1;
+                -webkit-box-orient: vertical;
+                max-height: 1.25em; /* Needed to get gradient to work on Firefox instead of ellipsis */
+                height: auto;
+
+                &:after {
+                    content: "";
+                    text-align: right;
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 40%;
+                    height: 1.15em;
+                    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+                }
+
+                @supports (-webkit-line-clamp: 1) {
+                    &:after {
+                        display: none;
+                    }
+                }
+            }
+
+            .model-status {
+                letter-spacing: 1.2px;
+                font-weight: 600;
+                margin: 0;
+            }
+
+            .yellow {
+                color: $brand-fifth;
+            }
+
+            .blue {
+                color: $brand-fourth;
+            }
+
+            .purple {
+                color: $brand-third;
+            }
+
+            .green {
+                color: $brand-secondary;
+            }
+        }
+
+        .card-body {
+            box-sizing: border-box;
+            display: inline-flex;
+            height: 80px;
+            width: 100%;
+            margin-bottom: 10px;
+            overflow: hidden;
+
+            .card-img {
+                height: 100%;
+                margin: 0px 20px 0px 0px;
+            }
+
+            svg {
+                max-height: 80px;
+                max-width: 60px;
+            }
+
+            .model-description {
+                height: 100%;
+                width: calc(100% - 70px);
+
+                margin: 0px;
+                text-overflow: ellipsis;
+
+            }
+        }
+
+        .card-footer {
+            box-sizing: border-box;
+            width: 100%;
+            text-align: center;
+
+            p {
+                margin: 0px 0px 10px 0px;
+            }
+
+            .fa,
+            .fal,
+            .far,
+            .fas {
+                color: lighten($brand-secondary, 20%);
+                margin-right: 5px;
+            }
+        }
+
+        &.clickable:hover {
+            cursor: pointer;
+        }
+
+        &:active {
+            box-shadow: none;
+            transform: translate(3px, 3px);
+        }
+    }
+}
+
+.model-card-add {
+    .card {
+        color: $brand-primary;
+        background: none;
+
+        min-height: $card-height;
+        width: 100%;
+
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        // borders
+        padding: 5px;
+        background-image: linear-gradient(to right, $brand-primary 50%, transparent 50%), linear-gradient(to right, $brand-primary 50%, transparent 50%), linear-gradient(to bottom, $brand-primary 50%, transparent 50%), linear-gradient(to bottom, $brand-primary 50%, transparent 50%);
+        background-position: left top, left bottom, left top, right top;
+        background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+        background-size: 25px 2px, 25px 2px, 2px 25px, 2px 25px;
+
+        box-shadow: none;
+        border: none;
+
+        .fa,
+        .fal,
+        .fas {
+            color: $brand-primary;
+            font-size: 60px;
+        }
+
+        .default {
+            display: block;
+        }
+
+        .hover {
+            display: none;
+        }
+
+        &:hover {
+            .default {
+                display: none;
+            }
+
+            .hover {
+                display: block;
+            }
+        }
+
+        h1  {
+            color: $brand-primary;
+            border-bottom: none;
+        }
+
+        h3 {
+            color: $brand-primary;
+        }
+    }
+}
+
+.model-card-workflow {
+    .card {
+        .star-rating-container {
+            .fa-star {
+                // color: $brand-third;
+                color: $brand-third
+            }
+        }
+    }
+
+    &.model-card-document {
+        .card {
+            .model-type {
+                color: $type-blue;
+            }
+        }
+    }
+
+    &.model-card-sentence {
+        .card {
+            .model-type {
+                color: $type-yellow;
+            }
+        }
+    }
+
+    &.model-card-word {
+        .card {
+            .model-type {
+                color: $type-green;
+            }
+        }
+    }
+}
+
+.model-card-api {
+    .card {
+        .star-rating-container {
+            .fa-star {
+                color: $brand-secondary;
+            }
+        }
+    }
+}

@@ -1,0 +1,92 @@
+<div class="filamentuiCard" ng-class="{'model-card-add': model.category === 'add'}">
+    <!-- Start STATIC Style -->
+    <div class="static" ng-if="!flip">
+        <div class="card clickable" ng-if="model.category === 'add'">
+            <div class="add-container">
+                <h1 class="default">
+                    <i class="fal fa-plus-octagon" aria-hidden="true"></i>
+                </h1>
+                <h1 class="hover">
+                    <i class="fas fa-plus-octagon" aria-hidden="true"></i>
+                </h1>
+                <h3>
+                    {{model.description}}
+                </h3>
+            </div>
+        </div>
+
+        <div class="card" ng-class="{'clickable' : !model.loading}" ng-if="model.category !== 'add'">
+            <div ng-if="model.banner" class="card-banner"><i class="fas fa-trophy-alt"></i> {{model.banner}}</div>
+            <div class="card-header">
+                <h3 title="{{model.name}}">{{model.name}}</h3>
+                <p class="model-status" ng-class="model.statusClass" ng-if="model.status">{{model.status}}</p>
+                <star-rating ng-if="showRatings && (model.averageRating || model.averageRating === 0)" stars="model.averageRating"></star-rating>
+            </div>
+            <div class="card-body">
+                <div class="card-img" ng-include="_imgSrc()"></div>
+                <p class="model-description">{{model.description || model.usedFor}}</p>
+            </div>
+            <div class="card-footer">
+                <p ng-if="model.stat" class="float-left"><i class="far fa-chart-line" aria-hidden="true"></i> {{model.stat}}</p>
+                <p ng-class="{'float-right' : model.stat}"><i class="fal fa-clock" aria-hidden="true"></i> {{model.date | date : 'longDate'}}</p>
+                <filamentui-button class="secondary" click="" disabled="model.loading">{{model.buttonText}}</filamentui-button>
+            </div>
+        </div>
+
+        <div ng-if="model.loading" class="card__loading">
+            <filamentui-loader type="'dots'"></filamentui-loader>
+        </div>
+    </div>
+    <!-- End STATIC Style -->
+
+    <!-- Start FLIP Style -->
+    <!-- <div class="flip" ng-if="flip">
+        <div class="front">
+            <div class="card">
+                <h3>{{model.name}}</h3>
+                <p class="model-description">{{model.description || model.usedFor}}</p>
+                <div class="card-footer">
+                    <star-rating ng-if="showRatings && (model.averageRating || model.averageRating === 0)" stars="model.averageRating"></star-rating>
+                    <div ng-if="!showRatings && !model.modelTaggingType">
+                        <p class="is-published" ng-if="model.publishedAt">Published</p>
+                        <p class="is-published" ng-if="!model.publishedAt">Unpublished</p>
+                    </div>
+                    <p class="model-type" ng-if="!showRatings || !model.averageRating && model.averageRating !== 0">{{model.modelTaggingType | modelTaggingType}}</p>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{model.date | date : 'longDate'}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="back">
+            <div class="card">
+                <h3>{{model.name}}</h3>
+                <div class="model-table">
+                    <table>
+                        <tr class="model-inputs">
+                            <td>Inputs</td>
+                            <td>{{model.inputNodes | concat}}</td>
+                        </tr>
+                        <tr class="model-services">
+                            <td>Services</td>
+                            <td>{{model.modelNodes | modelTaggingType | concat}}</td>
+                        </tr>
+                        <tr class="model-outputs">
+                            <td>Outputs</td>
+                            <td>{{model.outputNodes | concat}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div>
+                        <span><i class="fa fa-refresh" aria-hidden="true"></i> {{model.calls}}</span>
+                        <span class="divider">|</span>
+                        <span><i class="fa fa-link" aria-hidden="true"></i> {{model.numberOfNodes}}</span>
+                        <span class="divider">|</span>
+                        <span><i class="fa fa-money" aria-hidden="true"></i> {{model.cost | currency}}</span>
+                    </div>
+                    <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{model.date | date : 'longDate'}}</p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <!-- End FLIP Style -->
+</div>

@@ -1,0 +1,28 @@
+
+<div class="filamentuiFilter" tw-click-outside="_closeFilter()" ignore-if="_shouldHideFilter()">
+    <h5 ng-click="_toggleOptions()" ng-class="{'selectedFilter': activeFilter || displayOptions}">
+        <ng-transclude ng-if="!activeFilter"></ng-transclude>
+        <span ng-if="activeFilter">{{activeFilter}}</span>
+        <i class="fa"
+        ng-class="activeSort.key === key ? (asc ? 'fa-sort-down' : 'fa-sort-up') : 'fa-sort'"></i>
+    </h5>
+    <div class="options" ng-show="displayOptions">
+        <div class="filterSection" ng-if="sorts">
+            <h3>ORDER</h3>
+            <ul>
+                <li ng-click="_sort($event, true)" ng-class="{'selected': activeSort.key === key && activeSort.asc}">{{ sorts[0] }}</li>
+                <li ng-click="_sort($event, false)" ng-class="{'selected': activeSort.key === key && !activeSort.asc}">{{ sorts[1] }}</li>
+            </ul>
+        </div>
+        <div class="filterSection" ng-if="filters && filters.length">
+            <h3>FILTER</h3>
+            <ul>
+                <li ng-click="_filter($event, filter)"
+                    ng-repeat="filter in filters"
+                    ng-class="{'selectedFilter': filter.title === activeFilter}">
+                    {{ filter.title }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

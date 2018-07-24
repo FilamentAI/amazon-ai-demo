@@ -1,0 +1,77 @@
+
+.filamentuiPills {
+    > div {
+        font-size: 14px;
+        font-family: Nunito;
+        font-weight: 500;
+        display: inline-block;
+        padding: 10px 25px;
+
+        background-color: white;
+        color: $text-primary;
+        border: 1px solid lighten($text-primary, 20%);
+        border-left: 0;
+
+        cursor: pointer;
+
+        i {
+            margin-right: 10px;
+        }
+
+        &.selected,
+        &.selected:hover {
+            cursor: default;
+
+            opacity: 1;
+            background: $brand-primary;
+            border: 1px solid $brand-primary;
+            border-left: 0;
+            background-image: linear-gradient(116deg, $button-gradient-start 0%, $button-gradient-end 100%);
+            color: #ffffff;
+            font-weight: 200;
+        }
+
+        &.disabled,
+        &.disabled:hover {
+            cursor: default;
+            background : white;
+            opacity: 0.5;
+            color: $text-primary;
+            border: 1px solid rgb(66, 66, 66); //$text-primary;
+            border: 1px solid rgba(66, 66, 66, .5); //$text-primary;
+            border-left: 0;
+        }
+
+        &:hover {
+            border: 1px solid $brand-primary;
+            border-left: 0;
+            color: $brand-primary;
+        }
+
+        &:first-child {
+            border-left: 1px solid $text-primary;
+        }
+
+        &.selected:first-child,
+        &.selected:hover:first-child {
+            border-left: 1px solid $brand-primary;
+        }
+
+        &.disabled:first-child {
+            border-left: 1px solid rgb(66, 66, 66);
+            border-left: 1px solid rgba(66, 66, 66, .5);
+        }
+
+        &:hover:first-child {
+            border-left: 1px solid $brand-secondary;
+        }
+    }
+
+    // :first-child {
+    //     @include border-radiuses(0, 0, 10px, 10px);
+    // }
+
+    // :last-child {
+    //     @include border-radiuses(10px, 10px, 0, 0);
+    // }
+}

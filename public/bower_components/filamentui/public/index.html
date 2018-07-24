@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html class="pubic">
+
+<head>
+    <title>Filament :: Totem UI Framework</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <base href="/">
+
+    <!-- 3rd Party JavaScript & CSS for this demo app -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <!-- the module code, built via gulp, gulp watch -->
+    <script src="bower_components/dist/vendor/filamentui.vendor.js"></script>
+    <script src="bower_components/dist/filamentui.templates.js"></script>
+    <script src="bower_components/dist/filamentui.js"></script>
+    <link   href="bower_components/dist/vendor/filamentui.vendor.css" rel="stylesheet" >
+    <link   href="bower_components/dist/filamentui.css" rel="stylesheet" >
+    <!-- end module code -->
+
+    <!-- application JavaScript -->
+    <script src="app/app.js"></script>
+    <script src="app/pages/home/home.controller.js"></script>
+    <script src="app/pages/tables/tables.controller.js"></script>
+    <script src="app/pages/dashboards/dashboards.controller.js"></script>
+    <script src="app/pages/active/test.controller.js"></script>
+    <script src="app/services/api.service.js"></script>
+    <link rel="stylesheet" href="stage/style.css">
+    <!-- <link rel="stylesheet" href="stage/home/home.css"> -->
+    <!-- end application specific code -->
+
+</head>
+
+<body ng-app="filamentuiDemo">
+    <div class="fullHeight">
+        <div class="page-container">
+            <div ui-view class="fullHeight">
+                <!-- the pages will go in here -->
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

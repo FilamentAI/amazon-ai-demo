@@ -1,0 +1,17 @@
+<div class="filamentuiIcon">
+    <div ng-if="status === 'TRAINING'" title="Training First Version">
+        <filamentui-loader type="'wave-borderless'"></filamentui-loader>
+    </div>
+    <div ng-if="status === 'ENHANCING' || status === 'PROCESSING'" title="Enhancing">
+        <filamentui-loader type="'dots'"></filamentui-loader>
+    </div>
+    <div class="icon error" ng-if="status === 'FAILED'" title="Failed">
+        <i class="fas fa-times"></i>
+    </div>
+    <div class="icon success" ng-if="status === 'COMPLETE'" title="Complete">
+        <i class="fas fa-check"></i>
+    </div>
+    <div class="icon" ng-if="status == null">
+        <ng-transclude></ng-transclude>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+{
+  "name": "filamentui",
+  "version": "4.0.0",
+  "authors": [
+    "Andy Feltham (andy_feltham@uk.ibm.com)"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "main": [
+    "dist/filamentui.css",
+    "dist/filamentui.templates.js",
+    "dist/filamentui.js"
+  ],
+  "dependencies": {
+    "jquery": "3.2.1",
+    "angular": "1.6.10",
+    "angular-aria": "1.6.10",
+    "angular-sanitize": "1.6.10",
+    "angular-ui-router": "~0.4.2"
+  },
+  "resolutions": {
+    "angular": "1.6.10"
+  }
+}

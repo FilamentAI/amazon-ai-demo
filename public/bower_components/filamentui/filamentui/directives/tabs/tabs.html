@@ -1,0 +1,10 @@
+<div class="filamentui-tabs {{position}}">
+    <div class="tab-menu">
+        <div ng-repeat="tab in tabs track by tab.name" class="tab-nav-item">
+            <div ng-class="{ active : isActive(tab.index) }" ng-click="switch(tab)">
+                {{ tab.name }}
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane" ng-transclude></div>
+</div>

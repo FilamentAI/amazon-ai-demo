@@ -1,0 +1,130 @@
+<div class="filamentuiTable">
+    <div class="table">
+        <!-- Headers -->
+        <div ng-if="!options.hideHeaders"
+                class="header tablerow-border tablerow"
+                style="grid-template-columns: {{ _tableDimensions() }}; grid-template-rows: auto;">
+            <div ng-if="options.selectable" style="grid-column-start: 1; grid-column-end: 2;">
+                <filamentui-checkbox
+                        style="margin-left: 6px;"
+                        ng-if="options.multiple"
+                        ng-model="ignoreMe"
+                        ng-change="_checkAll()">
+                </filamentui-checkbox>
+            </div>
+            <div ng-repeat="col in cols" style="grid-column-start: {{ $index + ( options.selectable ? 2 : 1 ) }}; grid-column-end: {{ $index + ( options.selectable ? 3 : 2 ) }};">
+                <h5 class="tableheading" ng-if="!col.sorts && !col.filters">{{ col.title }}</h5>
+                <filamentui-filter
+                        ng-if="col.sorts || col.filters"
+                        key="col.key"
+                        event="event"
+                        sorts="col.sorts"
+                        sort-function="col.sortFunction"
+                        filters="col.filters"
+                        active-sort="activeSort"
+                        active-filters="activeFilters">
+                    {{ col.title }}
+                </filamentui-filter>
+            </div>
+            <div ng-if="actions || options.expandable">
+                <h5 ng-if="col.keys == null" class="actions">
+                    <i class="fa fa-list"></i>
+                </h5>
+            </div>
+        </div>
+
+        <!-- ng-repeat="row in _rows"  -->
+        <div dir-paginate="row in (_rows | filter : activeFilters : strictFilter) | itemsPerPage : pagination.perPage track by $index"
+             current-page="pagination.currentPage"
+             total-items="pagination._totalItems"
+             pagination-id="pagerId + '_pgid'"
+             class="tablerow-border">
+
+            <!-- Data row -->
+            <div class="tablerow {{ _clickClass( row ) }}"
+                 ng-class="{'expanded': options.expandable && row.expanded}"
+                 style="grid-template-columns: {{ _tableDimensions() }};"
+                 ng-click="_clickAction( row )">
+                <div ng-if="options.selectable" style="grid-column-start: 1; grid-column-end: 2; text-align: center;">
+                    <filamentui-checkbox
+                            ng-if="options.multiple"
+                            ng-model="row._meta.checked"
+                            ng-change="_updateSelected(row)">
+                    </filamentui-checkbox>
+                    <filamentui-radio
+                            ng-if="!options.multiple"
+                            ng-model="row._meta.checked"
+                            ng-change="_radioUpdated(row)">
+                    </filamentui-radio>
+                </div>
+                <div ng-repeat="(key, value) in _filterProperties(row)"
+                     ng-if="key != '_meta'"
+                     style="grid-column-start: {{ $index + ( options.selectable ? 2 : 1 ) }}; grid-column-end: {{ $index + ( options.selectable ? 3 : 2 ) }}; padding: 0 20px 0 0;">
+                    <span ng-if="value.type == null" ng-bind-html="value" class="basic-cell"></span>
+                    <filamentui-item-generator
+                            ng-if="value.type != null"
+                            type="value.type"
+                            data="value.data"
+                            event="igEvent">
+                    </filamentui-item-generator>
+                </div>
+                <div style="text-align: center;" ng-if="actions || (options.expandable && row.expandedContent)">
+                    <i class="far fa-chevron-left" ng-if="options.expandable && row.expandedContent && !row.expanded"></i>
+                    <i class="far fa-chevron-down" ng-if="options.expandable && row.expandedContent && row.expanded"></i>
+
+                    <div style="text-align: center;" ng-if="showActions(row)">
+                        <filamentui-menu options="actions" position="'right'" scope="row"></filamentui-menu>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Expanded content -->
+            <div ng-if="options.expandable && row.expandedContent" ng-show="row.expanded" class="expanded-content">
+                <!-- General content -->
+                <div ng-if="!row.expandedContent.type">
+                    {{row.expandedContent}}
+                </div>
+
+                <!-- Sub table -->
+                <div ng-if="row.expandedContent.type === 'filamentui-table'" class="subtable">
+                    <filamentui-table
+                        rows="row.expandedContent.data.rows"
+                        cols="row.expandedContent.data.cols"
+                        options="row.expandedContent.data.options"
+                        actions="row.expandedContent.data.actions"
+                        ng-model="row.expandedContent.data.selected"
+                        on-change="_updatedSubTable"
+                        pager-id="pagerId"
+                        table-row-index="$index"
+                        parent-row-index="row._filamentui_id">
+                    </filamentui-table>
+                </div>
+
+                <!-- Generated content -->
+                <div ng-if="row.expandedContent.type && row.expandedContent.type !== 'filamentui-table'">
+                    <filamentui-item-generator
+                        type="row.expandedContent.type"
+                        data="row.expandedContent.data"
+                        model='row.expandedContent.model'>
+                    </filamentui-item-generator>
+                </div>
+            </div>
+        </div>
+
+        <div class="inforow">
+            <div class="errorMessage" ng-show="required && !selected.length && errorMessage">
+                <i class="fa fa-exclamation-triangle"></i>
+                <span>{{errorMessage}}</span>
+            </div>
+
+            <div class="countMessage" ng-if="options.selectable">
+                <span>{{selectedCount}} selected</span>
+            </div>
+        </div>
+
+        <!-- Pager -->
+        <div ng-if="!options.hidePager" class="pagerrow">
+            <filamentui-pager options="pagerOptions" total="pagination._totalItems" sub="true"></filamentui-pager>
+        </div>
+    </div>
+</div>

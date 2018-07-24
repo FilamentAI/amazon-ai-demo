@@ -1,0 +1,21 @@
+// ==================================
+// MAJOR BREAKPOINTS
+// ==================================
+
+$breakpoints: (
+	small: 20em, // Mobile
+	medium: 50em, // 560px // Tablet
+	big: 55em,
+	large: 60em, // 960px // Desktop,
+	large2: 65em,
+	larger: 80em, // 960px // Desktop,
+	xlarge: 100em,
+	xxlarge: 110em,
+	xxxlarge: 130em
+);
+
+// ==================================
+// TWEAKPOINTS
+// ==================================
+
+$tweakpoints: ();

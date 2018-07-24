@@ -1,0 +1,117 @@
+
+.filamentuiTable {
+    .inforow {
+        margin: 5px 0;
+
+        .errorMessage {
+            display: inline;
+            color: $invalid;
+
+            .fa {
+                margin-right: 10px;
+            }
+
+            span {
+                font-size: 0.8em;
+            }
+        }
+
+        .countMessage {
+            text-align: right;
+            float: right;
+
+            span {
+                font-size: 0.8em;
+            }
+        }
+    }
+
+    h5 {
+        &.tableheading {
+            font-family: 'Source Sans Pro';
+            font-size: 14px;
+            color: $text-secondary;
+            letter-spacing: 0.29px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin: 5px 0px;
+            padding: 5px;
+            line-height: 16px;
+
+            .fa {
+                margin-top: 3px;
+                margin-left: 10px;
+            }
+
+            border: 1px solid transparent;
+            @include border-radius(5px);
+        }
+    }
+
+    .table {
+        .tablerow-border {
+            border-bottom: 1px solid $table-line;
+        }
+
+        .tablerow {
+
+            display: grid;
+            grid-template-rows: auto;
+            align-items: center;
+
+            padding: 15px 0;
+
+            vertical-align: middle;
+
+            &.header {
+                padding: 0px 0px;
+
+                .actions {
+                    margin: 0px;
+
+                    i {
+                        color: $text-secondary;
+                        display: inline-block;
+                        width: 100%;
+                        text-align: center;
+                    }
+                }
+            }
+
+            &.clickable:hover,
+            &.expandable:hover {
+                background-color: rgba($table-highlight, 0.15);
+                cursor: pointer;
+            }
+
+            .basic-cell {
+                margin-left: 5px;
+            }
+
+            p {
+                margin: 0;
+            }
+        }
+
+        .pagerrow {
+            padding: 15px 0;
+            display: grid;
+            vertical-align: center;
+            align-items: center;
+        }
+
+        .subtable {
+            margin: 0 40px;
+
+            .tablerow {
+                border: none;
+                padding: 5px 0;
+            }
+        }
+    }
+}
+
+// Subtable
+.filamentuiTable .table .tablerow-border .filamentuiTable .table .tablerow-border:last-of-type {
+    border: none;
+}

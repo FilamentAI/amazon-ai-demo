@@ -1,0 +1,50 @@
+
+.filamentui-label {
+    min-width: 94px;
+    display: inline-block;
+    text-align: center;
+    text-transform: capitalize;
+    margin-top: 5px;
+
+    border-radius: 60px;
+    padding: 3px 12px;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 0.6px;
+
+    color: white;
+    background: #ad62bf;
+
+    &.big {
+        font-size: 14px;
+        height: 32px;
+        width: 180px;
+        line-height: 25px;
+        border-radius: 25px;
+        text-align: center;
+    }
+
+    &.primary {
+        background-image: linear-gradient(130deg, #C50C6A 0%, #8e44ad 100%);
+    }
+
+    &.danger {
+        background: $danger;
+    }
+
+    &.warning {
+        background: $warning;
+    }
+
+    &.info {
+        background: $info;
+    }
+
+    &.success {
+        background: $brand-secondary;
+    }
+
+    &.default {
+        background: #7c7c7c;
+    }
+}

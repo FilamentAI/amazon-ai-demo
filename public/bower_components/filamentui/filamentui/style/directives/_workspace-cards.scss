@@ -1,0 +1,62 @@
+.workspace-cards {
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        margin: 15px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+
+        @include breakpoint(big) {
+            grid-template-columns: 33% 33% 33%;
+        }
+
+        @include breakpoint(large2) {
+            grid-template-columns: 25% 25% 25% 25%;
+        }
+
+        @include breakpoint(larger) {
+            grid-template-columns: 20% 20% 20% 20% 20%;
+        }
+
+        li {
+            padding: $baseline / 2;
+            width: 100%;
+            min-height: 75px;
+
+            a.button {
+                width: 100%;
+                padding: $baseline;
+                border-radius: 0;
+                height: 200px;
+                font-size: 16px;
+                position: relative;
+        
+                .name {
+                    font-family: 'Source Sans Pro', Helvetica, sans-serif;
+                    font-size: 24px;
+                    margin-bottom: 15px;
+                    font-weight: 200;
+                    letter-spacing: 1.2px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+                
+                .description {
+                    span {
+                        font-weight: 200;
+                        text-transform: initial;
+                    }
+                }
+                
+                .no-description {
+                    span {
+                        font-style: italic;
+                        color: darken($brand-white, 30%);
+                    }
+                }
+            }
+        }
+    }
+}

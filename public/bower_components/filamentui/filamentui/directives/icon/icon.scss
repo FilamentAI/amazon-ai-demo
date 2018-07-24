@@ -1,0 +1,28 @@
+
+.filamentuiIcon {
+    width: 100%;
+    display: inline-block;
+
+    .icon {
+        text-align: center;
+        // margin: 0 auto;
+        width: 50px;
+        font-size: 24px;
+
+        &.success {
+            color: $success;
+        }
+
+        &.error {
+            color: $error;
+        }
+    }
+
+    .filamentuiLoader .wave-box {
+        margin: 0;
+    }
+
+    .spinner {
+        border: none !important;
+    }
+}

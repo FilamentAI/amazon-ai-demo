@@ -1,0 +1,19 @@
+
+.star-rating-container {
+    display: flex;
+
+    .fas, .fal {
+        cursor: pointer;
+    }
+
+    .notSelected {
+        opacity: 0.5;
+    }
+
+    &.disabled {
+        .fas, .fal {
+            cursor: default;
+        }
+    }
+}
+

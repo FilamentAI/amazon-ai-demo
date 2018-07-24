@@ -1,0 +1,8 @@
+<div class="filamentuiPills">
+    <div 
+        ng-repeat="pill in options" 
+        ng-class="{ 'disabled' : pill.disabled && pill.disabled(), 'selected' : pill.value == selectedPill.value && !pill.disabled() }" 
+        ng-click="_click(pill)">
+            <span ng-bind-html="pill.text"></span>
+    </div>
+</div>

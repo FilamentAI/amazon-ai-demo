@@ -1,0 +1,91 @@
+
+.filamentuiFilter {
+    h5 {
+        font-family: 'Source Sans Pro';
+        font-size: 14px;
+        color: $text-secondary;
+        letter-spacing: 0.29px;
+        text-transform: uppercase;
+        display: inline-block;
+        margin: 5px 0px;
+        padding: 5px;
+        cursor: pointer;
+        line-height: 16px;
+        .fa {
+            margin-top: 3px;
+            margin-left: 10px;
+        }
+
+        &.active,
+        &.selectedFilter {
+            border: 1px solid $input-outline;
+            @include border-radius(5px);
+        }
+    }
+
+    // hide border but maintain height values
+    // avoid messing with padding values
+    h5 {
+        border: 1px solid transparent;
+        @include border-radius(5px);
+    }
+
+    .options {
+        border: 1px solid $input-outline;
+        @include border-radius(5px);
+    }
+
+    .options {
+        padding: 5px;
+        position: absolute;
+        background: white;
+        z-index: 500;
+        font-family: 'Source Sans Pro';
+        font-size: 14px;
+        color: $text-primary;
+        letter-spacing: 0.29px;
+        line-height: 30px;
+
+        .filterSection {
+            margin: 25px 15px 5px 25px;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+
+            h3 {
+                font-family: 'Source Sans Pro';
+                font-size: 14px;
+                font-weight: 400;
+                color: $text-secondary;
+                letter-spacing: 0.29px;
+                // line-height: 32px;
+                border: none;
+                margin-bottom: 5px;
+            }
+
+            ul {
+                margin: 0px;
+                list-style: none;
+                padding-left: 0px;
+
+                li {
+                    cursor : pointer;
+                }
+
+                li.selected, li.selectedFilter {
+                    color: $brand-primary;
+                }
+
+                li.selected:before, li.selectedFilter:before {
+                    font: normal normal normal 14px/1;
+                    font-family: 'Font Awesome\ 5 Pro', FontAwesome;
+                    content: "\f00c";
+                    margin-left: -19px;
+                    margin-right: 5px;
+                }
+            }
+
+        }
+    }
+}

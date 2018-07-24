@@ -1,0 +1,101 @@
+
+.filamentuiMenu {
+
+    text-align: left;
+    position: relative;
+
+    div.menuButton {
+        font-family: 'Source Sans Pro';
+        font-size: 14px;
+        color: $text-primary;
+        letter-spacing: 0.29px;
+        display: inline-block;
+        margin: 5px 0px;
+        padding: 5px;
+        cursor: pointer;
+        line-height: 16px;
+        border: 1px solid transparent;
+        @include border-radius(5px);
+
+        .fa {
+            font-weight: 400;
+        }
+
+        &.active {
+            border: 1px solid $input-outline;
+            @include border-radius(5px);
+        }
+    }
+
+    // div.menuButton,
+    .options {
+        border: 1px solid $input-outline;
+        @include border-radius(5px);
+    }
+
+    .options {
+        min-width: 200px;
+        position: absolute;
+        left: 0px;
+        background: white;
+        z-index: 500;
+        font-family: 'Source Sans Pro';;
+        font-size: 14px;
+        color: $text-primary;
+        letter-spacing: 0.29px;
+        line-height: 32px;
+        opacity: 1;
+        @include animation(fadein, 0.25s, 0s, linear);
+
+
+        .menuOptionList {
+            cursor: pointer;
+            .menuGroup {
+                border-top: 1px solid $input-outline;
+
+                .icon,
+                .menutitle {
+                    display: inline-block;
+                }
+
+                .icon {
+                    .fa {
+                        margin-left: -5px;
+                        margin-right: 5px;
+                    }
+                }
+
+                div.menu {
+                    padding: 0 20px;
+
+                    &:first-of-type {
+                        padding-top: 5px;
+                    }
+
+                    &:last-of-type {
+                        padding-bottom: 5px;
+                    }
+
+                    &:hover {
+                        background-color: rgba($table-highlight, 0.15);
+                    }
+
+                    &.disabled {
+                        opacity: 0.3;
+                    }
+                }
+            }
+
+            .menuGroup:first-child {
+                border-top: none;
+            }
+        }
+    }
+
+    &.right {
+        .options {
+            left: auto;
+            right: 0px;
+        }
+    }
+}

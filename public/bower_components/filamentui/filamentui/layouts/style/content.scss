@@ -1,0 +1,30 @@
+
+.filamentui_layout.standardContent {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    .mainContent {
+        box-sizing: border-box;
+        width: 100%;
+        overflow-y: auto;
+        float: left;
+        transition: width 0.4s ease;
+
+        padding-bottom: 60px;
+        position: absolute;
+        margin-top: 135px;
+        margin-right: auto;
+        margin-left: auto;
+        min-height: calc(100% - 195px);
+
+        &.noPadding {
+            padding: 0px;
+        }
+
+        .test {
+            // color: $text-primary;
+            width: $sidebar-width;
+        }
+    }
+}

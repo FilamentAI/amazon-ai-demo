@@ -1,0 +1,78 @@
+
+.filamentuiLoader {
+    .ui-loader {
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    .wave-box {
+        align-items: center;
+        border: 2px solid #4F2D7F;
+        display: flex;
+        margin: 0 auto;
+        height: 60px;
+        width: 60px;
+        padding: 5px;
+
+        &.borderless {
+            border: none;
+        }
+    }
+    .wave-box svg {
+        margin: 0 auto;
+        overflow: hidden;
+    }
+    .wave-box #wave {
+        stroke-dasharray: 0 16 101 16;
+        animation: moveTheWave 5000ms linear infinite;
+    }
+    @keyframes moveTheWave {
+        0% {
+            stroke-dashoffset: 0;
+            transform: translate3d(0, 0, 0);
+        }
+        100% {
+            stroke-dashoffset: -133;
+            transform: translate3d(-90px, 0, 0);
+        }
+    }
+
+    .dots {
+        font-size: 14px;
+        align-items: center;
+        color: $brand-primary;
+        display: flex;
+        height: 30px;
+        margin: 0 auto;
+        padding: 5px;
+
+        span {
+            margin-left: 5px;
+        }
+
+        span:first-child {
+            margin-left: 0;
+        }
+    }
+    @keyframes blink {
+        50% {
+            color: transparent
+        }
+    }
+
+    .dot {
+        animation: 2s blink infinite
+    }
+
+    .dot:nth-child(2) {
+        animation-delay: 500ms
+    }
+
+    .dot:nth-child(3) {
+        animation-delay: 1000ms
+    }
+}
