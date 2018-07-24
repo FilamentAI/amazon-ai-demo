@@ -25,7 +25,7 @@ coverage
 
 # Bower dependency directory (https://bower.io/)
 public/bower_components/*
-!public/bower_components/filamentui
+!public/bower_components/filamentui/*
 
 # node-waf configuration
 .lock-wscript
