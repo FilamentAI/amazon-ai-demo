@@ -573,7 +573,7 @@
      "types": [
       "one class support vector classifier"
      ],
-     "enabled": true,
+     "enabled": false,
      "local": false,
      "module": "node-red-contrib-machine-learning",
      "file": "/Users/filament/amazon-ai-demo/node_modules/node-red-contrib-machine-learning/nodes/trainers/one-class-support-vector-classifier/one-class-support-vector-classifier.js"
