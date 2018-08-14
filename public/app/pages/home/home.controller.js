@@ -16,23 +16,7 @@ angular.module('tribe').controller('HomeCtrl',
             $scope.dataStream.onMessage(function (message) {
                 var rating = "";
                 var data = JSON.parse(message.data);
-                if ( data[0][0].class.indexOf("a-star-5") > 0 ) { 
-                    rating = 5;
-                }
-                if ( data[0][0].class.indexOf("a-star-4") > 0 ) { 
-                    rating = 1;
-                }
-                if ( data[0][0].class.indexOf("a-star-3") > 0 ) { 
-                    rating = 3;
-                }
-                if ( data[0][0].class.indexOf("a-star-2") > 0 ) { 
-                    rating = 2;
-                }
-                if ( data[0][0].class.indexOf("a-star-1") > 0 ) { 
-                    rating = 1;
-                }
-                data.rating = rating;
-                $scope.totalReviews += rating;
+                $scope.totalReviews += data.rating.actual.value;
                 $scope.fetchedReviews++;
                 
                 $scope.reviews.push(data);
@@ -58,7 +42,7 @@ angular.module('tribe').controller('HomeCtrl',
                 $scope.totalReviews = 0;
                 $scope.fetchedReviews = 0;
                 
-                $http.post("http://localhost:6006/red-api/test", {
+                $http.post("http://localhost:6006/red-api/fetch", {
                     "search": inputURL
                 }).then(function (response) {
                     $scope.returnedData = response.data;
