@@ -31,7 +31,30 @@ angular.module('tribe').controller('HomeCtrl',
                 if ( data[0][0].class.indexOf("a-star-1") > 0 ) { 
                     rating = 1;
                 }
-                data.rating = rating;
+                
+		data.rating = rating;
+
+
+		var predict_rating = ""		
+		if(data[1][0].stars[0].label == "1"){
+			predict_rating = 1;
+		}
+		if(data[1][0].stars[0].label == "2"){
+			predict_rating = 2;
+		}
+		if(data[1][0].stars[0].label == "3"){
+			predict_rating = 3;
+		}
+		if(data[1][0].stars[0].label == "4"){
+			predict_rating = 4;
+		}
+		if(data[1][0].stars[0].label == "5"){
+			predict_rating = 5;
+		}
+
+		data.PredictRating = predict_rating;
+
+
                 $scope.totalReviews += rating;
                 $scope.fetchedReviews++;
                 
@@ -74,3 +97,4 @@ angular.module('tribe').controller('HomeCtrl',
 ]
 
 );
+

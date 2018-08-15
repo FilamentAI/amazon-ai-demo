@@ -25,7 +25,7 @@
                         <div class=" filamentuiCard" style="height: 50px;">
                             <div class="card" style="padding: 5px;">
                                 <div style="    text-align: center;">
-                                    <img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/41OXzHyJ9iL.jpg">
+                                    <img style="height: 175px; width: 210px;" src="https://images-na.ssl-images-amazon.com/images/I/41OXzHyJ9iL.jpg">
                                 </div>
                             </div>
                         </div>
@@ -43,11 +43,19 @@
                                 <p>{{ review[1][0].FullText }}</p>
                             </div>
                         </div>
+			<div class="row noPadding noBorder">
+                            <div class="col-xs-offset-9 col-xs-3">
+                                <filamentui-star-rating ng-model="review.rating"  disabled="'true'" style="float: right;"></filamentui-star-rating>
+				<p> <b> Stars Given By User <b> </p>
+                            </div>
+				
+			</div>
                         <div class="row noPadding noBorder">
                             <div class="col-xs-offset-9 col-xs-3">
-                                <filamentui-star-rating ng-model="review.rating" disabled="'true'" style="float: right;"></filamentui-star-rating>
+                                <filamentui-star-rating ng-model="review.PredictRating"  disabled="'true'" style="float: right;"></filamentui-star-rating>
+				<p> <b> Stars Given by AI</b> </p>
                             </div>
-                        </div>
+			</div>
                     </div>
                 </div>
             </div>
@@ -65,8 +73,9 @@
                 Total Reviews : {{ reviewCount[0] }} <span ng-if="reviewCount != fetchedReviews && fetchedReviews > 0">( fetched {{ fetchedReviews }} )</span> <span ng-if="reviewCount == fetchedReviews"> - DONE</span>
             </div>
             <div>
-                Average Review : {{ totalReviews / reviews.length | number : 2 }} / 5
+                Average User Review: {{ totalReviews / reviews.length | number : 2 }} / 5
             </div>
         </div>
     </div>
 </div>
+
