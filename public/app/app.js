@@ -52,6 +52,30 @@ app.config(function ($urlRouterProvider, $stateProvider, $locationProvider) {
             data: {
                 title: 'Machine Learning Demo'
             }
+        })
+    
+        .state('test', {
+            name: 'test',
+            parent: 'header',
+            url: '/test',
+            views: {
+                'headerContent': {
+                    template: '<tribe-header></tribe-header>'
+                },
+                'pageContent': {
+                    templateUrl: 'filamentui/layouts/content_smaller.html'
+                },
+                'title@test': {
+                    template: '<page-header></page-header>'
+                },
+                'content@test': {
+                    templateUrl: 'app/pages/test/test.html',
+                    controller: 'TestCtrl'
+                }
+            },
+            data: {
+                title: 'Enter your own review to test'
+            }
         });
 });
 

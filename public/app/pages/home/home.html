@@ -1,72 +1,72 @@
 <div class="row">
-	<div class="col-xs-9">
-		<div class="row noPadding noBorder">
-			<div class="col-xs-12">
-				<div class="row">
-					<div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/Parker-Ingenuity-Rubber-Medium-Technology/product-reviews/B005SA4UNK/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
-						<div class=" filamentuiCard" style="height: 50px;">
-							<div class="card" style="padding: 5px;">
-								<div style="    text-align: center;">
-									<img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/91qsouthN8L._SL1500_.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/LEGO-60110-City-Station-Building/product-reviews/B013JQDLDE/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
-						<div class=" filamentuiCard" style="height: 50px;">
-							<div class="card" style="padding: 5px;">
-								<div style="    text-align: center;">
-									<img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/91TXZS6fnmL._SL1500_.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/AOC-Response-Monitor-Display-Q2778VQE/product-reviews/B00U2ZZX5A/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
-						<div class=" filamentuiCard" style="height: 50px;">
-							<div class="card" style="padding: 5px;">
-								<div style="    text-align: center;">
-									<img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/41OXzHyJ9iL.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="row noPadding noBorder">
-			<h2>{{ productTitle[0] }}</h2>
-			<div class="col-xs-12" ng-if="reviews.length != 0">
-				<div ng-repeat="review in reviews" class="review filamentuiCard">
-					<div class="card" style="overflow-y: hidden;" ng-class="{ 'illogical' : review.logical == 'Illogical', 'logical' : review.logical == 'Logical'}">
-						<div class="row noPadding noBorder">
-							<div class="col-xs-12">
-								<p style="color:#434343 !important;">{{ review.payload }}</p>
-							</div>
-						</div>
-						<div class="row noPadding noBorder" ng-class="{ 'vN':review.rating == 1, 'n':review.rating == 2, 'm':review.rating == 3, 'p':review.rating == 4, 'vP':review.rating == 5}">
-							<div class="col-xs-offset-9 col-xs-3">
-								<filamentui-star-rating ng-model="review.rating" disabled="'true'" style="float: right;"></filamentui-star-rating>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="col-xs-3">
-		<h3>Connection Status</h3>
-		<filamentui-icon status="connected"> </filamentui-icon>
-		<filamentui-loader ng-if="working" style="position: absolute; top: 0px; right: 0px;"></filamentui-loader>
-		<div ng-if="totalReviews != 0">
-			<h3>Progress</h3>
-			<filamentui-progress ng-if="totalReviews != 0" progress="( fetchedReviews / reviewCount[0] ) * 100 "></filamentui-progress>
-			<h3>Stats</h3>
-			<div>
-				Total Reviews : {{ reviewCount[0] }} <span ng-if="reviewCount != fetchedReviews && fetchedReviews > 0">( fetched {{ fetchedReviews }} )</span> <span ng-if="reviewCount == fetchedReviews"> - DONE</span>
-			</div>
-			<div>
-				Average Review : {{ totalReviews / reviews.length | number : 2 }} / 5
-			</div>
-		</div>
-	</div>
+    <div class="col-xs-9">
+        <div class="row noPadding noBorder">
+            <div class="col-xs-12">
+                <div class="row">
+                    <div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/Parker-Ingenuity-Rubber-Medium-Technology/product-reviews/B005SA4UNK/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
+                        <div class=" filamentuiCard" style="height: 50px;">
+                            <div class="card" style="padding: 5px;">
+                                <div style="    text-align: center;">
+                                    <img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/91qsouthN8L._SL1500_.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/LEGO-60110-City-Station-Building/product-reviews/B013JQDLDE/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
+                        <div class=" filamentuiCard" style="height: 50px;">
+                            <div class="card" style="padding: 5px;">
+                                <div style="    text-align: center;">
+                                    <img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/91TXZS6fnmL._SL1500_.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/AOC-Response-Monitor-Display-Q2778VQE/product-reviews/B00U2ZZX5A/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
+                        <div class=" filamentuiCard" style="height: 50px;">
+                            <div class="card" style="padding: 5px;">
+                                <div style="    text-align: center;">
+                                    <img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/41OXzHyJ9iL.jpg">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row noPadding noBorder">
+            <h2>{{ productTitle[0] }}</h2>
+            <div class="col-xs-12"  ng-if="reviews.length != 0">
+                <div ng-repeat="review in reviews" class="review filamentuiCard">
+                    <div class="card" style="overflow-y: hidden;" ng-class="{ 'illogical' : !review.logical, 'logical' : review.logical }">
+                        <div class="row noPadding noBorder">
+                            <div class="col-xs-12">
+                                <p style="color:#434343 !important;">{{ review.FullText }}</p>
+                            </div>
+                        </div>
+                        <div class="row noPadding noBorder" ng-class="{ 'vN':review.rating.actual.value == 1, 'n':review.rating.actual.value == 2, 'm':review.rating.actual.value == 3, 'p':review.rating.actual.value == 4, 'vP':review.rating.actual.value == 5}">
+                            <div class="col-xs-offset-9 col-xs-3">
+                                <filamentui-star-rating ng-model="review.rating.actual.value" disabled="'true'" style="float: right;"></filamentui-star-rating>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3">
+        <h3>Connection Status</h3>
+        <filamentui-icon status="connected"></filamentui-icon>
+        <filamentui-loader ng-if="working" style="position: absolute; top: 0px; right: 0px;"></filamentui-loader>
+        <div ng-if="totalReviews != 0">
+            <h3>Progress</h3>
+            <filamentui-progress ng-if="totalReviews != 0" progress="( fetchedReviews / reviewCount[0] ) * 100 "></filamentui-progress>
+            <h3>Stats</h3>
+            <div>
+                Total Reviews : {{ reviewCount[0] }} <span ng-if="reviewCount != fetchedReviews && fetchedReviews > 0">( fetched {{ fetchedReviews }} )</span> <span ng-if="reviewCount == fetchedReviews"> - DONE</span>
+            </div>
+            <div>
+                Average Review : {{ totalReviews / reviews.length | number : 2 }} / 5
+            </div>
+        </div>
+    </div>
 </div>
