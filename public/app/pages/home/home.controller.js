@@ -10,46 +10,51 @@ angular.module('tribe').controller('HomeCtrl',
 				reconnectIfNotNormalClose: true
 			});
 
-            $scope.dataStream.onMessage(function (message) {
-                var rating = "";
-                var data = JSON.parse(message.data);
-                $scope.totalReviews += data.rating.actual.value;
-                $scope.fetchedReviews++;
-                
-                $scope.reviews.push(data);
-                
-                if ( $scope.fetchedReviews == $scope.reviewCount ) { 
-                    $scope.working = false;
-                }
-            });
-        
-            $scope.dataStream.onOpen ( function () { 
-                $scope.connected = "COMPLETE";
-                $scope.$apply();
-            });
-        
-            $scope.dataStream.onClose ( function () {
-                $scope.connected = "FAILED";
-                // reconnect.
-            });
+			$scope.dataStream.onMessage(function (message) {
+				var rating = "";
+				var data = JSON.parse(message.data);
+				$scope.totalReviews += data.rating.actual.value;
+				$scope.fetchedReviews++;
 
-            $scope.getReviews = function ( inputURL ) {
-                $scope.working = true;
-                $scope.reviews = []; // reset the list...
-                $scope.totalReviews = 0;
-                $scope.fetchedReviews = 0;
-                
-                $http.post("http://localhost:6006/red-api/fetch", {
-                    "search": inputURL
-                }).then(function (response) {
-                    $scope.returnedData = response.data;
-                    $scope.productTitle = response.data[0];
-                    $scope.reviewCount = response.data[1];
-                    
-                }, function (error) {
-                    console.log("Error", error);
-                })
-            }
+				$scope.reviews.push(data);
+
+				if ($scope.fetchedReviews == $scope.reviewCount) {
+					$scope.working = false;
+				}
+			});
+
+			$scope.dataStream.onOpen(function () {
+				$scope.connected = "COMPLETE";
+				$scope.$apply();
+			});
+
+			$scope.dataStream.onClose(function () {
+				$scope.connected = "FAILED";
+				// reconnect.
+			});
+
+			$scope.getReviews = function (inputURL) {
+				$scope.working = true;
+				$scope.reviews = []; // reset the list...
+				$scope.totalReviews = 0;
+				$scope.fetchedReviews = 0;
+
+				$http.post("http://localhost:7007/red-api/fetch", {
+					"search": inputURL
+				}).then(function (response) {
+					$scope.returnedData = response.data;
+					$scope.productTitle = response.data[0];
+					$scope.reviewCount = response.data[1];
+					if ($scope.reviewCount > 100) {
+						$scope.reviewCount = "100+"
+					} else {
+						$scope.reviewCount = "0" + $scope.reviewCount[0]
+					}
+
+				}, function (error) {
+					console.log("Error", error);
+				})
+			}
 
     }
 ]
