@@ -10,10 +10,14 @@ angular.module('tribe').controller('HomeCtrl',
 				reconnectIfNotNormalClose: true
 			});
 
+
 			$scope.dataStream.onMessage(function (message) {
+				$scope.accuracy = 0
 				var rating = "";
 				var data = JSON.parse(message.data);
 				$scope.totalReviews += data.rating.actual.value;
+				$scope.totalPredicted += data.rating.predicted.value; //isNaN = False
+				//				console.log(isNaN($scope.totalPredicted))
 				$scope.fetchedReviews++;
 
 				$scope.reviews.push(data);
@@ -22,6 +26,23 @@ angular.module('tribe').controller('HomeCtrl',
 					$scope.working = false;
 				}
 			});
+
+
+			$scope.submitReview = function (text) {
+				$http.post("http://localhost:7007/red-api/submitReviews", {
+					"input": text
+				}).then(function (response) {
+					console.log(response.data)
+					$scope.sentimentVal = response.data[0].label;
+					$scope.sentimentCon = response.data[0].confidence;
+					$scope.ratingVal = response.data[1].label;
+					$scope.ratingCon = response.data[1].confidence
+				}, function (error) {
+					console.log("Error", error);
+				})
+			}
+
+
 
 			$scope.dataStream.onOpen(function () {
 				$scope.connected = "COMPLETE";
@@ -37,6 +58,7 @@ angular.module('tribe').controller('HomeCtrl',
 				$scope.working = true;
 				$scope.reviews = []; // reset the list...
 				$scope.totalReviews = 0;
+				$scope.totalPredicted = 0;
 				$scope.fetchedReviews = 0;
 
 				$http.post("http://localhost:7007/red-api/fetch", {
@@ -50,6 +72,7 @@ angular.module('tribe').controller('HomeCtrl',
 					} else {
 						$scope.reviewCount = "0" + $scope.reviewCount[0]
 					}
+
 
 				}, function (error) {
 					console.log("Error", error);

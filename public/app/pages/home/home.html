@@ -2,10 +2,10 @@
 	<div class="col-xs-9">
 		<div class="row noPadding noBorder">
 			<div class="col-xs-12">
-				<div class="row">
+				<div class="row" style="padding-bottom:0px !important;">
 					<div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/Parker-Ingenuity-Rubber-Medium-Technology/product-reviews/B005SA4UNK/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
 						<div class=" filamentuiCard" style="height: 50px;">
-							<div class="card" style="padding: 5px;">
+							<div class="card" style="padding-top: 0px; padding-bottom: 10px; padding-right: 10px; padding-left: 10px; border-style: solid; border-width: 5px;">
 								<div style="    text-align: center;">
 									<img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/91qsouthN8L._SL1500_.jpg">
 								</div>
@@ -14,7 +14,7 @@
 					</div>
 					<div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/LEGO-60110-City-Station-Building/product-reviews/B013JQDLDE/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
 						<div class=" filamentuiCard" style="height: 50px;">
-							<div class="card" style="padding: 5px;">
+							<div class="card" style="padding-top: 0px; padding-bottom: 10px; padding-right: 10px; padding-left: 10px; border-style: solid; border-width: 5px;">
 								<div style="    text-align: center;">
 									<img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/91TXZS6fnmL._SL1500_.jpg">
 								</div>
@@ -23,7 +23,7 @@
 					</div>
 					<div class="col-xs-4" ng-click="getReviews('https://www.amazon.co.uk/AOC-Response-Monitor-Display-Q2778VQE/product-reviews/B00U2ZZX5A/ref=cm_cr_dp_d_show_all_top?ie=UTF8&reviewerType=all_reviews')">
 						<div class=" filamentuiCard" style="height: 50px;">
-							<div class="card" style="padding: 5px;">
+							<div class="card" style="padding-top: 0px; padding-bottom: 10px; padding-right: 10px; padding-left: 10px; border-style: solid; border-width: 5px;">
 								<div style="    text-align: center;">
 									<img style="height: 175px;" src="https://images-na.ssl-images-amazon.com/images/I/41OXzHyJ9iL.jpg">
 								</div>
@@ -33,15 +33,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="row noPadding noBorder" id="scroll">
+		<div class="row noPadding noBorder">
 			<h2>{{ productTitle[0] }}</h2>
 			<h3 ng-show="productTitle[0]">
-				<e> (Illogical </e>
-				<f> ,Logical) </f>
+				<b>Sentiment</b> : (Left),
+				<b>
+					<e> Illogical </e>
+				<f> /Logical </f>
+				</b> : (Right)
 			</h3>
-			<div class="col-xs-12" ng-if="reviews.length != 0">
+			<div class="col-xs-12" ng-if="reviews.length != 0" id="scroll">
 				<div ng-repeat="review in reviews" class="review filamentuiCard">
-					<div class="card" style="overflow-y: hidden;" ng-class="{ 'illogical' : !review.logical, 'logical' : review.logical }">
+					<div class="card" style="overflow-y: hidden;" ng-class="{ 'illogical' : !review.logical, 'logical' : review.logical, 'positive' : review.sentiment.predicted.value == 'positive', 'negative' :  review.sentiment.predicted.value == 'negative'}">
 						<div class="row noPadding noBorder">
 							<div class="col-xs-12">
 								<p style="color:#434343 !important;">{{ review.FullText }}</p>
@@ -64,12 +67,37 @@
 		<div ng-if="totalReviews != 0">
 			<h3>Progress</h3>
 			<filamentui-progress ng-if="totalReviews != 0" progress="( fetchedReviews / reviewCount.substring(0,3) ) * 100 "></filamentui-progress>
-			<h3>Stats</h3>
-			<div>
-				Total Reviews : {{ reviewCount }} <span ng-if="reviewCount.substring(0,3) != fetchedReviews && fetchedReviews > 0">( fetched {{ fetchedReviews }} )</span> <span ng-if="reviewCount.substring(0,3) == fetchedReviews"> Complete </span>
+			<h3>Stats:</h3>
+			<div style="font-size:18px;">
+				Total Reviews :
+				<b> {{ reviewCount }}</b> <span style="font-weight:bold;" ng-if="reviewCount.substring(0,3) != fetchedReviews && fetchedReviews > 0">( fetched {{ fetchedReviews }} )</span> <span style="font-weight:bold;" ng-if="reviewCount.substring(0,3) == fetchedReviews"> Complete </span>
 			</div>
-			<div>
-				Average Stars : {{ totalReviews / reviews.length | number : 2 }} / 5
+			<div style="font-size:18px;">
+				Average Stars :
+				<b>{{ totalReviews / reviews.length | number: 2 }} / 5 </b>
+			</div>
+			<div style="font-size:18px;">
+				Average Predicted Stars:
+				<b> {{ totalPredicted / reviews.length | number: 2 }} / 5 </b>
+			</div>
+		</div>
+		<div style="margin-top:20px; width:400px; height:165px; border-style:solid; border-width:2px; border-color:gray; padding:5px;">
+			<Input placeholder="Enter a Review Here to Predict Star Rating and Sentiment..." style="width:385px; height:50px; text-align:left;" ng-model="Text1">
+			</Input>
+			<button style="width:385px; font-weight:bolder;" ng-click="submitReview(Text1)">Enter</button>
+			<div style="font-size:16px;">
+				<div>Predicted Sentiment:
+					<b> {{ sentimentVal }} </b>
+				</div>
+				<div>Confidence:
+					<b> {{ sentimentCon*100 | number: 1 }} %</b>
+				</div>
+				<div>Predicted Stars:
+					<b> {{ ratingVal }} </b>
+				</div>
+				<div>Confidence:
+					<b> {{ ratingCon*100 | number: 1 }} %</b>
+				</div>
 			</div>
 		</div>
 	</div>
